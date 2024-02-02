@@ -15,6 +15,8 @@ void main() {
           color: Colors.blue,
           width: 200,
           height: 100,
+          child: Text("Mobile 2",style: TextStyle(fontSize: 30),
+          textAlign: TextAlign.center,),
           ),
           Container(
             color: Colors.red,
@@ -22,7 +24,9 @@ void main() {
             height: 100
             ,),
       
-      
+             ElevatedButton(onPressed: (){
+              print("Botão pressionado");
+             }, child: Text("Mensagem")),
       
           ],),
       ),
