@@ -17,10 +17,15 @@ class Home extends StatelessWidget {
         title:  Text("Aplicativo aula 02 - TA"),
        ), 
        body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(color: Colors.red,
-          width: 200,
-          height:200,),
+          width: 400,
+          height:250,        
+          ),
+          ElevatedButton(onPressed: (){
+            print("Botão pressionado");
+          }, child: Text("Mensagem")),
         ],
        ),
       ) ,
