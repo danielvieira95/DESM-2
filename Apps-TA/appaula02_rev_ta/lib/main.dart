@@ -20,12 +20,42 @@ class Home extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(color: Colors.red,
-          width: 400,
-          height:250,        
+          width: 200,
+          height:250,  
+          child: Text("Senai",style: TextStyle(fontSize: 30),),      
           ),
-          ElevatedButton(onPressed: (){
-            print("Botão pressionado");
-          }, child: Text("Mensagem")),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(onPressed: (){
+                print("Botão pressionado");
+              }, child: Text("Mensagem")),
+              ElevatedButton(onPressed: (){
+            print("SENAI");
+          }, child: Text("SENAI")),
+            ],
+          ),
+         Column(
+          children: [
+            Container(color: Colors.blue,
+            height: 100,
+            width: 200,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text("Mobile 2"),
+                    Text("Senai"),
+                  ],
+                  
+                ),
+                Text("Daniel"),
+              ],
+            ),
+            ),
+          ],
+         )
         ],
        ),
       ) ,
