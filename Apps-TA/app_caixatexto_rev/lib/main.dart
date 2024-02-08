@@ -16,13 +16,14 @@ class Telaprincipal extends StatelessWidget {
 }
 
 class Campotexto extends StatefulWidget {
-  const Campotexto({super.key});
-
+ Campotexto({super.key});
   @override
   State<Campotexto> createState() => CampotextoState();
 }
 
 class CampotextoState extends State<Campotexto> {
+  // variavel do tipo TextEditing controler para armazenar o que é digitado no campo texto
+TextEditingController ctexto = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +40,18 @@ class CampotextoState extends State<Campotexto> {
        /* onChanged: (String texto){
          print(texto);
         },*/
-        onSubmitted: (String texto){
+        /*onSubmitted: (String texto){
           print(texto);
         },
+        */
+        controller: ctexto,
+        ),
+        ElevatedButton(onPressed: (){
+           print(ctexto.text);
+        }, child: Text("Verificar")),
+        TextField(
+        keyboardType: TextInputType.url,
+        decoration: InputDecoration(labelText: "Digite um numero"),
         ),
        ], 
       ),
