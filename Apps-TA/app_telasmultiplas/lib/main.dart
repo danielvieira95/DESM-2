@@ -1,7 +1,10 @@
+import 'package:app_telasmultiplas/Telasecundaria.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(Telaprincipal());
+  runApp(MaterialApp(
+    home: Telaprincipal(),
+  ));
 }
 
 class Telaprincipal extends StatefulWidget {
@@ -14,8 +17,7 @@ class Telaprincipal extends StatefulWidget {
 class TelaprincipalState extends State<Telaprincipal> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           title: Text("App multiplas telas"),
         ),
@@ -26,10 +28,21 @@ class TelaprincipalState extends State<Telaprincipal> {
             Container(color: Colors.blue,
             width: 150,
             height: 150,),
+           
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>  Telasecundaria()));
+                  // route,
+                  // Widget que permite navegação entre telas
+                },
+                child: Text("Tela 2")),
             ],
           ),
         ),
-      ),
-    );
+      );
+    
   }
 }
