@@ -35,6 +35,10 @@ class _TelaopcoesState extends State<Telaopcoes> {
               width: 100,
               height: 100,
             ),
+            ElevatedButton(onPressed: (){
+              Navigator.pop(context);
+
+            }, child: Icon(Icons.account_circle)),
           ],
         ));
   }
