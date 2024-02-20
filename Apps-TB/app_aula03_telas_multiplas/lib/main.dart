@@ -25,9 +25,14 @@ class Telaprincipal extends StatelessWidget {
       body: // Column coluna do aplicativo
       Column(
         // Children estabelece relação com os demais widgets com a coluna
+        mainAxisAlignment: MainAxisAlignment.center, // alinhamento principal do widget column
         children: [
-          Container(color: Colors.blue,width: 300,height: 180,),
+          Container(color: Colors.blue,width: 400,height: 180,
+          child: Text("Tela 1",style: TextStyle(fontSize:25 ),),),
+          // child é a relação com 1 widgets
+          ElevatedButton(onPressed: (){
 
+          }, child: Text("Tela 2")),
         ],
 
       ),
