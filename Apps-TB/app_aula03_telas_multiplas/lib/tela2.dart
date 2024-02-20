@@ -1,3 +1,4 @@
+import 'package:app_aula03_telas_multiplas/tela3.dart';
 import 'package:flutter/material.dart';
 
 class Telasecundaria extends StatelessWidget {
@@ -16,6 +17,10 @@ class Telasecundaria extends StatelessWidget {
         Navigator.pop(context);
 
         }, child: Text("Tela 1")),
+        ElevatedButton(onPressed: (){
+        // Navigator push permite chamar a próxima tela e o Page Route 
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>Telaop()));
+        }, child: Text("Tela 3"))
       ],
      ),
 
