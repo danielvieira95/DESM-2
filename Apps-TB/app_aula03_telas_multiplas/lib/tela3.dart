@@ -1,3 +1,4 @@
+import 'package:app_aula03_telas_multiplas/tela4.dart';
 import 'package:flutter/material.dart';
 
 class Telaop extends StatelessWidget {
@@ -16,6 +17,10 @@ class Telaop extends StatelessWidget {
         Navigator.pop(context);
 
         }, child: Text("Tela 2")),
+        ElevatedButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>telacontador()));
+
+        }, child: Text("Contador"))
       ],
      ),
 
