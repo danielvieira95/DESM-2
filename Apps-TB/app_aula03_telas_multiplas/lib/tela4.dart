@@ -1,3 +1,4 @@
+import 'package:app_aula03_telas_multiplas/tela5.dart';
 import 'package:flutter/material.dart';
 
 class telacontador extends StatefulWidget {
@@ -6,9 +7,9 @@ class telacontador extends StatefulWidget {
   @override
   State<telacontador> createState() => telacontadorState();
 }
-
+int cont =0;
 class telacontadorState extends State<telacontador> {
-  int cont =0;
+  
   @override
   
   Widget build(BuildContext context) {
@@ -29,7 +30,16 @@ class telacontadorState extends State<telacontador> {
               cont++;
               
             });
-          }, child: Icon(Icons.add)), // Adiciona icone no botão
+          }, child: Icon(Icons.add)),
+          ElevatedButton(onPressed: (){
+            setState(() {
+              cont =0;
+            });
+          }, child: Icon(Icons.lock_reset_sharp)),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>campotexto()));
+
+          }, child: Text("Tela 5")), // Adiciona icone no botão
         ],
       ),
     );
