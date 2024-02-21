@@ -40,15 +40,23 @@ class campotexto extends StatelessWidget {
             controller: _pass, // armazena o que é digitado no campo texto na variavel _pass
           ),
           ElevatedButton(onPressed: (){
+            SnackBarAction(label: Text(_user), onPressed: (){
+              context
+            });
             print(_user.text);
             print(_pass.text);
+            
           }, child: Text("Exibir")),
           ElevatedButton(onPressed: (){
             _user.text = ""; // limpa a variavel user e text é por conta que é string
             _pass.text=  ""; // limpa a variavel user e text é por conta que é string
-          }, child: Text("Limpar"))
+          }, child: Text("Limpar")),
+         
+          
         ],
       ),
     );
   }
 }
+
+ 
