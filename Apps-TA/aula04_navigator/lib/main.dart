@@ -25,7 +25,9 @@ class Navigator_screen extends StatefulWidget {
 
 class _Navigator_screenState extends State<Navigator_screen> {
   int selectIndex =0; // variavel pela escolha do widget bar
+  // Constante para definir caracteristicas do texto
   static const TextStyle optionStyle =  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  // Cria lista de widgets 
   static const List<Widget> _widgetOptions = <Widget>[   
       
    Text(
@@ -62,14 +64,40 @@ class _Navigator_screenState extends State<Navigator_screen> {
       appBar: AppBar(
         title: Text("Aplicativo aula 04"),
       ),
-      body: Column(
-        children: [
-          
-          
-
-        ],
-
+      body:  Center(
+        child: _widgetOptions.elementAt(selectIndex),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Business',
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'School',
+            backgroundColor: Colors.orange,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+            backgroundColor: Colors.purple,
+          ),
+        ],
+        currentIndex: selectIndex,
+        selectedItemColor: Colors.white,
+        onTap: onItemTapped,
+      );
+    
+        
+          
+          
 
     );
   }
