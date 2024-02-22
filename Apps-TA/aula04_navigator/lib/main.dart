@@ -129,9 +129,10 @@ class CheckboxExample extends StatefulWidget {
   @override
   State<CheckboxExample> createState() => CheckBoxState();
 }
-bool ischeck = false;
+
 class CheckBoxState extends State<CheckboxExample> {
    // variavel para armazenar o valor do check box
+   bool ischeck = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -142,13 +143,16 @@ class CheckBoxState extends State<CheckboxExample> {
             // Value é o parametro do check box
             // ischeck variavel booleana que recebe o parametro value do check box
           value:  ischeck, 
-          onChanged: (bool? value){
+          onChanged:(bool? value){
             setState(() {
-                ischeck = value!;
+              ischeck = value!;
               
             });
-
-          }),
+          }
+          
+          
+          
+           ),
             Text("Status do checkbox $ischeck"),
         ],
       ),
