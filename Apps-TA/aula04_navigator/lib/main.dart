@@ -41,11 +41,12 @@ class _Navigator_screenState extends State<Navigator_screen> {
       style: optionStyle,
     ),*/
     CheckboxExample(),
-  
-    Text(
+    RadioButton(),
+    /*Text(
       'Index 2: School',
       style: optionStyle,
     ),
+    */
     Text(
       'Index 3: Settings',
       style: optionStyle,
@@ -132,6 +133,7 @@ class CheckboxExample extends StatefulWidget {
 
 class CheckBoxState extends State<CheckboxExample> {
    // variavel para armazenar o valor do check box
+   
    bool ischeck = false;
   @override
   Widget build(BuildContext context) {
@@ -156,6 +158,63 @@ class CheckBoxState extends State<CheckboxExample> {
             Text("Status do checkbox $ischeck"),
         ],
       ),
+    );
+  }
+}
+
+class RadioButton extends StatefulWidget {
+  const RadioButton({super.key});
+
+  @override
+  State<RadioButton> createState() => _RadioButtonState();
+}
+
+class _RadioButtonState extends State<RadioButton> {
+  int ? selectOption;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        RadioListTile<int>(
+          title: Text("Opção 1"),
+          value: 1,
+          groupValue: selectOption,
+          onChanged: (value){
+            setState(() {
+              selectOption = value;
+              
+            });
+          },
+
+        ),
+        RadioListTile<int>(
+          title: Text("Opção 2"),
+          value: 2,
+          groupValue: selectOption,
+          onChanged: (value){
+            setState(() {
+              selectOption = value;
+              
+            });
+          },
+
+        ),
+        RadioListTile(
+          title: Text("Opção 3"),
+          value: 3,
+          groupValue: selectOption,
+          onChanged: (value){
+            setState(() {
+              selectOption = value;
+              
+            });
+          },
+
+        ),
+        Text("Radio button opção $selectOption"),
+
+      ],
     );
   }
 }
