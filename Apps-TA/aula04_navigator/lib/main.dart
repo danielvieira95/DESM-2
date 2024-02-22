@@ -20,9 +20,42 @@ class Navigator_screen extends StatefulWidget {
 
   @override
   State<Navigator_screen> createState() => _Navigator_screenState();
+
 }
 
 class _Navigator_screenState extends State<Navigator_screen> {
+  int selectIndex =0; // variavel pela escolha do widget bar
+  static const TextStyle optionStyle =  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[   
+      
+   Text(
+      'Index 0: School',
+      style: optionStyle,
+    ), 
+   // Tela1() ,  
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+  
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Settings',
+      style: optionStyle,
+    ),
+    
+    
+  ];
+  void onItemTapped(int index) {
+    setState(() {
+      selectIndex = index;
+      
+      
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +63,12 @@ class _Navigator_screenState extends State<Navigator_screen> {
         title: Text("Aplicativo aula 04"),
       ),
       body: Column(
-        
+        children: [
+          
+          
+
+        ],
+
       ),
 
     );
