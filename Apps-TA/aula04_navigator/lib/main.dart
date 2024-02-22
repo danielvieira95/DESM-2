@@ -26,19 +26,21 @@ class Navigator_screen extends StatefulWidget {
 class _Navigator_screenState extends State<Navigator_screen> {
   int selectIndex =0; // variavel pela escolha do widget bar
   // Constante para definir caracteristicas do texto
-  static const TextStyle optionStyle =  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const TextStyle optionStyle =  TextStyle(fontSize: 30, fontWeight: FontWeight.bold); 
   // Cria lista de widgets 
   static const List<Widget> _widgetOptions = <Widget>[   
       
-   Text(
+   /*Text(
       'Index 0: School',
       style: optionStyle,
-    ), 
+    ), */
    // Tela1() ,  
-    Text(
+   TelaHome(),
+    /*Text(
       'Index 1: Business',
       style: optionStyle,
-    ),
+    ),*/
+    CheckboxExample(),
   
     Text(
       'Index 2: School',
@@ -99,6 +101,57 @@ class _Navigator_screenState extends State<Navigator_screen> {
           
           
 
+    );
+  }
+}
+
+class TelaHome extends StatelessWidget {
+  const TelaHome({super.key});
+ static const TextStyle styletext =  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+
+          Center(child: Text("Mobile 2",style: styletext)),
+        ],
+      ),
+    );
+  }
+}
+
+class CheckboxExample extends StatefulWidget {
+  const CheckboxExample({super.key});
+
+  @override
+  State<CheckboxExample> createState() => CheckBoxState();
+}
+bool ischeck = false;
+class CheckBoxState extends State<CheckboxExample> {
+   // variavel para armazenar o valor do check box
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          Text("Check Box 1"),
+          Checkbox(
+            // Value é o parametro do check box
+            // ischeck variavel booleana que recebe o parametro value do check box
+          value:  ischeck, 
+          onChanged: (bool? value){
+            setState(() {
+                ischeck = value!;
+              
+            });
+
+          }),
+            Text("Status do checkbox $ischeck"),
+        ],
+      ),
     );
   }
 }
