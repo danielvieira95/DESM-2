@@ -93,7 +93,7 @@ class _Navigator_screenState extends State<Navigator_screen> {
         currentIndex: selectIndex,
         selectedItemColor: Colors.white,
         onTap: onItemTapped,
-      );
+      ),
     
         
           
