@@ -3,9 +3,7 @@ import 'package:flutter/material.dart'; // Pacote para o sistema operacional and
 // função principal
 void main() {
   // Run app é a função que vai chamar a tela do aplicativo
-  runApp(
-    // Material APP é a função necessária para chamar a classe criada
-    NavBottom());
+  runApp( NavBottom()); // Material APP é a função necessária para chamar a classe criada
 }
 // Classe NavBottom do tipo stateless, pois não tem widgets dinamicos
 class NavBottom extends StatelessWidget {
@@ -16,9 +14,7 @@ class NavBottom extends StatelessWidget {
     // Scaffold é o layout semipronto do aplicativo
     return MaterialApp(
       home:   // app bar é a barra do aplicativo
-      
-      
-      
+                
           NavigatorScreen());
     
   }
