@@ -36,7 +36,8 @@ class _NavigatorScreenState extends State<NavigatorScreen> {
   static const List<Widget> _widgetOptions= <Widget> [
     //Text('Index 0 : Home',style:optionStyle ),
     TelaHome(),
-    Text('Index 1: Escola',style:optionStyle ),
+    CheckBox(),
+    //Text('Index 1: Escola',style:optionStyle ),
     Text('Index 2: Negócio',style: optionStyle,),
     Text('Index 3: Configurações',style:optionStyle),
 
@@ -125,6 +126,44 @@ class _TelaHomeState extends State<TelaHome> {
           }, child: Text("Mensagem 2")),
 
 
+        ],
+      ),
+    );
+  }
+}
+
+class CheckBox extends StatefulWidget {
+  const CheckBox({super.key});
+
+  @override
+  State<CheckBox> createState() => _CheckBoxState();
+}
+
+class _CheckBoxState extends State<CheckBox> {
+  bool ischeck = false; // variavel booleana para armazenar o estado do checkbox
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child:            Text("Check Box Widget"),),
+          // Checkbox widget
+          Checkbox(
+          value: ischeck,
+          onChanged: (bool? value){
+           setState(() {
+             ischeck = value!; // ! operador not 
+           });
+          },
+           
+          ),
+          Text("Checkbox é $ischeck"),
+
+            
+          
+          
         ],
       ),
     );
