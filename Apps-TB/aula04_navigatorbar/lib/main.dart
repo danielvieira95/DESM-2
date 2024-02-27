@@ -141,6 +141,7 @@ class CheckBox extends StatefulWidget {
 
 class _CheckBoxState extends State<CheckBox> {
   bool ischeck = false; // variavel booleana para armazenar o estado do checkbox
+  bool ischeck2 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,7 +160,20 @@ class _CheckBoxState extends State<CheckBox> {
           },
            
           ),
-          Text("Checkbox é $ischeck"),
+          Text("Checkbox 1 é $ischeck"),
+                  Center(
+            child:            Text("Check Box Widget 2"),),
+          // Checkbox widget
+          Checkbox(
+          value: ischeck2,
+          onChanged: (bool? value){
+           setState(() {
+             ischeck2 = value!; // ! operador not 
+           });
+          },
+           
+          ),
+          Text("Checkbox é $ischeck2"),
 
             
           
