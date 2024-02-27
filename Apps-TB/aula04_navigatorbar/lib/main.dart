@@ -5,8 +5,7 @@ void main() {
   // Run app é a função que vai chamar a tela do aplicativo
   runApp(
     // Material APP é a função necessária para chamar a classe criada
-    MaterialApp(
-    home:NavBottom()));
+    NavBottom());
 }
 // Classe NavBottom do tipo stateless, pois não tem widgets dinamicos
 class NavBottom extends StatelessWidget {
@@ -15,19 +14,13 @@ class NavBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Scaffold é o layout semipronto do aplicativo
-    return Scaffold(
-      // app bar é a barra do aplicativo
-      appBar: AppBar(
-        // title é o titulo
-        // Text - texto do aplicativo
-        title:  Text("App Navigator Bar"),
-      ),
-      body: Column(
-        children: [
-
-        ],
-      ),
-    );
+    return MaterialApp(
+      home:   // app bar é a barra do aplicativo
+      
+      
+      
+          NavigatorScreen());
+    
   }
 }
 // Classe do tipo stateful 
@@ -59,7 +52,46 @@ class _NavigatorScreenState extends State<NavigatorScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    // Widget Scaffold 
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("App Navigator Bar"),
+      ),
+      // Center centraliza o widget
+      body: Center(
+        // .elementAt permite passar um numero como index para o widget
+        child: _widgetOptions.elementAt(selectIndex),
+      ),
+      // criar o bottom navigator
+
+       bottomNavigationBar: BottomNavigationBar(
+        // itens é cada item do navigation bar
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'Escola',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Negócios',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+            backgroundColor: Colors.red,
+          ),
+          ],
+           currentIndex: selectIndex,
+        selectedItemColor: Colors.white,
+        onTap:showItemTrap ,
+    ));
   }
 }
 
