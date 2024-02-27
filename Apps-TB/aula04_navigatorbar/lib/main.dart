@@ -34,7 +34,8 @@ class _NavigatorScreenState extends State<NavigatorScreen> {
   static const TextStyle optionStyle = TextStyle(fontSize:30,fontWeight: FontWeight.bold);
   // Cria uma lista de widgets para utilizar no navigator bar
   static const List<Widget> _widgetOptions= <Widget> [
-    Text('Index 0 : Home',style:optionStyle ),
+    //Text('Index 0 : Home',style:optionStyle ),
+    TelaHome(),
     Text('Index 1: Escola',style:optionStyle ),
     Text('Index 2: Negócio',style: optionStyle,),
     Text('Index 3: Configurações',style:optionStyle),
@@ -66,41 +67,66 @@ class _NavigatorScreenState extends State<NavigatorScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.red,
+            backgroundColor: Color.fromARGB(255, 61, 123, 155),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
             label: 'Escola',
-            backgroundColor: Colors.red,
+            backgroundColor: Color.fromARGB(255, 66, 114, 138),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
             label: 'Negócios',
-            backgroundColor: Colors.red,
+            backgroundColor: Color.fromARGB(255, 61, 114, 141),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
-            backgroundColor: Colors.red,
+            backgroundColor: Color.fromARGB(255, 48, 88, 107),
           ),
           ],
            currentIndex: selectIndex,
-        selectedItemColor: Colors.white,
+        selectedItemColor: Colors.yellowAccent,
         onTap:showItemTrap ,
     ));
   }
 }
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class TelaHome extends StatefulWidget {
+  const TelaHome({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<TelaHome> createState() => _TelaHomeState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _TelaHomeState extends State<TelaHome> {
+  String? msg; // declara variavel msg do tipo string
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Container(color: Colors.blueGrey,width: 250,height: 150,
+            child: Text("$msg",style: TextStyle(fontSize: 30),textAlign: TextAlign.center,),),
+          ),
+          ElevatedButton(onPressed: (){
+            setState(() {
+              msg= "SENAI";
+            });
+
+          }, child: Text("Mensagem")),
+          ElevatedButton(onPressed: (){
+            setState(() {
+              msg= "MOBILE 2";
+            });
+
+          }, child: Text("Mensagem 2")),
+
+
+        ],
+      ),
+    );
   }
 }
