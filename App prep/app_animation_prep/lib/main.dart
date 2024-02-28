@@ -36,7 +36,7 @@ class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
               borderRadius: _borderRadius,
             ),
             // Define how long the animation should take.
-            duration: const Duration(seconds: 1),
+            duration: const Duration(seconds: 2),
             // Provide an optional curve to make the animation feel smoother.
             curve: Curves.fastOutSlowIn,
           ),
@@ -57,13 +57,13 @@ class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
               _color = Color.fromRGBO(
                 random.nextInt(256),
                 random.nextInt(256),
-                random.nextInt(256),
+                random.nextInt(100),
                 1,
               );
 
               // Generate a random border radius.
               _borderRadius =
-                  BorderRadius.circular(random.nextInt(100).toDouble());
+                  BorderRadius.circular(random.nextInt(300).toDouble());
             });
           },
           child: const Icon(Icons.play_arrow),
