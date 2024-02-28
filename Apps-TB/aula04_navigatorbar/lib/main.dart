@@ -38,7 +38,8 @@ class _NavigatorScreenState extends State<NavigatorScreen> {
     TelaHome(),
     CheckBox(),
     //Text('Index 1: Escola',style:optionStyle ),
-    Text('Index 2: Negócio',style: optionStyle,),
+    //Text('Index 2: Negócio',style: optionStyle,),
+    rb(),
     Text('Index 3: Configurações',style:optionStyle),
 
   ];
@@ -178,6 +179,55 @@ class _CheckBoxState extends State<CheckBox> {
             
           
           
+        ],
+      ),
+    );
+  }
+}
+class rb extends StatefulWidget {
+  const rb({super.key});
+
+  @override
+  State<rb> createState() => _rbState();
+}
+
+class _rbState extends State<rb> {
+  int op=0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          Text("Radio Button",style: TextStyle(fontSize: 20),),
+          // Widget Radio button
+          RadioListTile<int>(
+            title: Text("Opção 1"),
+            value: 1, 
+            groupValue: op,  // variavel que recebe a opçao
+            onChanged: (value){
+              setState(() {
+                op=1;
+              });
+            }),
+            RadioListTile<int>(
+            title: Text("Opção 2"),
+            value: 2, 
+            groupValue: op,  // variavel que recebe a opçao
+            onChanged: (value){
+              setState(() {
+                op=2;
+              });
+            }),
+            RadioListTile<int>(
+            title: Text("Opção 3"),
+            value: 1, 
+            groupValue: op,  // variavel que recebe a opçao
+            onChanged: (value){
+              setState(() {
+                op=3;
+              });
+            }),
+           Text("Opção escolhida: $op",style: TextStyle(fontSize: 20),),
         ],
       ),
     );
