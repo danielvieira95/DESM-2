@@ -54,10 +54,40 @@ class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
                    widget._borderRadius =  BorderRadius.circular(random.nextInt(100).toDouble());
               });
             },child: Icon(Icons.play_arrow),), // icone do botao
-
+            Snack_bar(),
           ],
         ),
       ),
     );
   }
 }
+
+class Snack_bar extends StatelessWidget {
+  const Snack_bar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  ElevatedButton(
+        onPressed: () {
+          final snackBar = SnackBar(
+            content: const Text('Yay! A SnackBar!'),
+            action: SnackBarAction(
+              label: 'Undo',
+              onPressed: () {
+                // Some code to undo the change.
+              },
+            ),
+          );
+
+          // Find the ScaffoldMessenger in the widget tree
+          // and use it to show a SnackBar.
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        },
+        child: const Text('Show SnackBar'),
+      );
+    
+  }
+}
+        
+
+    
