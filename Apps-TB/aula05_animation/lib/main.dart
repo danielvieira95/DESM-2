@@ -63,10 +63,34 @@ class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
 
 
         });
-       },child: Icon(Icons.play_arrow),), // Icon permite escolher um icone para o botao
+       },child: Icon(Icons.play_arrow),),
+       Snack_bar(), // Icon permite escolher um icone para o botao
        ], 
       ),
       ) ,
     );
+  }
+}
+
+class Snack_bar extends StatelessWidget {
+  const Snack_bar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(onPressed: (){
+      // variavel final chamada snack 
+      final snack = SnackBar(
+        content: Text("Exemplo Snackbar"),
+        // açao do snackbar
+        action: SnackBarAction(
+          label: "Undo",
+           
+          onPressed: (){
+
+          }),
+        );
+        // ScaffoldMessenger é ele quem irá acionar o snackbar
+          ScaffoldMessenger.of(context).showSnackBar(snack);
+    }, child: Text("Mensagem"));
   }
 }
