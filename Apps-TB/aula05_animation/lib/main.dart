@@ -28,7 +28,28 @@ class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
       ),
       body: Column(
        children: [
-
+       Center(
+        // AnimatedContainer é um widget
+        child: AnimatedContainer(
+          width: widget.width, // sempre a variavel for declarada fora da classe atual se quiser
+          // chamá-la precisamos utilizar widget.nome da variavel
+          height: widget.height,
+          // decoration para estilizar o widget
+          // BoxDecoration para estilizar o widget da forma desejada
+          decoration: BoxDecoration(
+          color: widget.color, // cor
+          borderRadius: widget.borderRadius, // estilo da borda do container
+          ),
+         duration: Duration(seconds: 1), // duração da animação
+         curve: Curves.fastOutSlowIn, // tipo de animação do widget
+        ),
+       ),
+       // botão do tipo flutuante na tela
+       FloatingActionButton(onPressed: (){
+        setState(() {
+          
+        });
+       },child: Icon(Icons.play_arrow),), // Icon permite escolher um icone para o botao
        ], 
       ),
       ) ,
