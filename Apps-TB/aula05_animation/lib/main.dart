@@ -28,7 +28,8 @@ class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-       children: [
+        children: [
+        
        Center(
         // AnimatedContainer é um widget
         child: AnimatedContainer(
