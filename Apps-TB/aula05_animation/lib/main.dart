@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math'; // importa o pacote para fazer operações matemáticas, conversoes de valores
 void main() {
-  runApp(const MyApp());
+  runApp(AnimatedContainerApp());
 }
 // Cria a classe do aplicativo animated container APP
 class AnimatedContainerApp extends StatefulWidget {
@@ -27,6 +27,7 @@ class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
         title: Text("App Animation"),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
        children: [
        Center(
         // AnimatedContainer é um widget
@@ -47,7 +48,19 @@ class _AnimatedContainerAppState extends State<AnimatedContainerApp> {
        // botão do tipo flutuante na tela
        FloatingActionButton(onPressed: (){
         setState(() {
-          
+          final random = Random(); // variavel do tipo final que irá receber um numero randomico gerado
+          // pela funçao random
+          widget.height = random.nextInt(300).toDouble(); // valor random gerado com no máximo 300 do tipo inteiro
+          // convertido para double
+          widget.width = random.nextInt(300).toDouble();
+          // gerar cores aleatórias para os containers gerados
+          widget.color =Color.fromRGBO(
+            random.nextInt(256), random.nextInt(256), random.nextInt(256), 1);
+            // borda do container
+            widget.borderRadius = BorderRadius.circular(random.nextInt(100).toDouble()); // altera a borda
+            // do container
+
+
         });
        },child: Icon(Icons.play_arrow),), // Icon permite escolher um icone para o botao
        ], 
