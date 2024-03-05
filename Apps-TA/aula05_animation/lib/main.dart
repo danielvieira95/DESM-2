@@ -71,8 +71,8 @@ class Snack_bar extends StatelessWidget {
         onPressed: () {
           final snackBar = SnackBar(
             content: const Text('Yay! A SnackBar!'),
-            action: SnackBarAction(
-              label: 'Undo',
+            action: SnackBarAction(              
+              label: 'Undo',              
               onPressed: () {
                 // Some code to undo the change.
               },
