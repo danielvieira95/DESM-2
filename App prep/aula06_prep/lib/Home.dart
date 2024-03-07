@@ -22,9 +22,11 @@ class _HomeState extends State<Home> {
     
     String url = "https://viacep.com.br/ws/13060380/json/";
     //String url = "https://viacep.com.br/ws/13060354/json/";
+    //String url = "https: //blockchain.info/ticker";
     http.Response response; // variavel para receber dados da api
     response = await http.get(Uri.parse(url)); // await aguardar a resposta
     Map<String,dynamic> retorno = json.decode(response.body);
+    
     setState(() {
        logradouro = retorno["logradouro"];
        complemento = retorno["complemento"];
