@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:label="aula06_api_http_tb"
         android:name="${applicationName}"
