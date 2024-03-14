@@ -39,7 +39,8 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(width: 250,height: 150,color: Colors.amber,child: Image.asset('imagens/bitcoin.png',),),
+            Container(width: 250,height: 150,color: Colors.amber,
+            child: Image.asset('imagens/bitcoin.png',),),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text("Valor do BitCoin: ${_preco}", style: TextStyle(fontSize: 20),),
