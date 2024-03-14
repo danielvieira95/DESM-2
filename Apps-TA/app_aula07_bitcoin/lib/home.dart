@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -8,6 +10,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  _consultaBitCoin() async{
+    String url = "https://blockchain.info/ticker"; // url com a api 
+    http.Response response = await http.get(Uri.parse(url)) ; // espera o retorno da api
+    Map<String, dynamic> dados = json.decode(response.body); // decodifica o dado da api
+    print("Resultado api ${response.statusCode.toString()}");
+    print("Valores BitCoin ${dados}");
+     
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
