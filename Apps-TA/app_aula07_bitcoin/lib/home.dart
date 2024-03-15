@@ -90,7 +90,15 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
              children: [
-              
+                RadioListTile<int>(
+              title:Text("R\$"),
+              value: 1,
+               groupValue: selectop, 
+               onChanged: (value){
+                setState(() {
+                  selectop = value;
+                });
+               }),
                Container(width: 50,height: 50,color: Colors.blue,),
                Container(width: 50,height: 50,color: Colors.red,),
                 Container(width: 50,height: 50,color: Colors.green,),
