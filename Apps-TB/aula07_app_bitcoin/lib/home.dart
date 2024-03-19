@@ -33,6 +33,7 @@ class _HomeState extends State<Home> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
            Text("Valor do BitCoin R\$ ${_precobit}",style: TextStyle(fontSize: 18),),
            ElevatedButton(onPressed: _consultaprecoBitCoin, child: Text("Verificar")),
