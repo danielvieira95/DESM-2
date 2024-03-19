@@ -9,6 +9,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  String? _precobit; // variavel para armazenar o valor do bitcoin
   // async é porque a função vai esperar uma resposta da api pelo metodo http.get
   _consultaprecoBitCoin() async{
 
@@ -16,7 +17,12 @@ class _HomeState extends State<Home> {
     http.Response response = await http.get(Uri.parse(url));
     Map<String,dynamic> dados = json.decode(response.body); // decodifica a informação
     //vinda da api
-
+    print("Codigo de status da resposta da api ${response.statusCode.toString()}");
+    setState(() {
+       _precobit =dados["BRL"]["buy"].toString();
+    });
+   
+    print(_precobit);
 
   }
   @override
@@ -25,10 +31,14 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text("Conversor de moedas "),
       ),
-      body: Column(
-        children: [
+      body: Center(
+        child: Column(
+          children: [
+           Text("Valor do BitCoin R\$ ${_precobit}",style: TextStyle(fontSize: 18),),
+           ElevatedButton(onPressed: _consultaprecoBitCoin, child: Text("Verificar")),
 
-        ],
+          ],
+        ),
       ),
     );
   }
