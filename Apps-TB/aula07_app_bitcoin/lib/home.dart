@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http; // importa o pacote http para consumo da api
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: [
-          
+
         ],
       ),
     );
