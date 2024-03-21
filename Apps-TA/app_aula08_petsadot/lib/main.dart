@@ -33,6 +33,12 @@ class _PetsScreenState extends State<PetsScreen> {
     final response = await http.get(Uri.parse('https://raw.githubusercontent.com/giovannamoeller/pets-api/main/db.json'));
     if(response.statusCode ==200){
       final parsed = jsonDecode(response.body);
+      List<dynamic> petJson = parsed['pets'];
+      return petJson.map((json)=> Pet.fromJson(json)).toList(); // método para converter o json em forma de lista
+    }
+    else{
+      print(response.statusCode);
+      throw Exception('Falha ao consumir a api');
     }
 
   }
