@@ -12,18 +12,25 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String _preco = "0";
+  String? nome;
   void _recupera_preco() async{
     
     String url = "https://blockchain.info/ticker";
+    //String url = "https://raw.githubusercontent.com/giovannamoeller/pets-api/main/db.json";
+     //String url = "https://raw.githubusercontent.com/alura-cursos/obtendo_dados_com_flutter_http/main/filmes.json";
+     
     http.Response response = await http.get(Uri.parse(url));
 
-    Map<String, dynamic> dados = json.decode(response.body);
-    setState(() {
+    Map<String, dynamic> dados = json.decode(response.body);    
+        setState(() {
       _preco = dados["BRL"]["buy"].toString();
+    // _preco = "50";
     });
 
-    print("Resultado : " + dados["BRL"]["buy"].toString());
+    //print("Resultado : " + dados["BRL"]["buy"].toString());
     print(response.body);
+    //nome = dados["nome"];
+//print(nome);
   }
   @override
   Widget build(BuildContext context) {
