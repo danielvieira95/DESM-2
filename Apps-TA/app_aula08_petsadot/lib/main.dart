@@ -1,4 +1,4 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 void main() {
@@ -57,10 +57,9 @@ class _PetsScreenState extends State<PetsScreen> {
         title: Text("App Pet adote"),
       ),
       body: Center(
-        child: //ElevatedButton(onPressed: consultaPet, child: Text("Verificar")),
-       FutureBuilder<List<Pet>>(
+      child: FutureBuilder<List<Pet>>(
        future: futurePets,
-        builder: (context, snapshot) {
+       builder: (context, snapshot) {
           if(snapshot.hasData){
             return ListView.builder(
             itemCount: snapshot.data!.length, // tamanho do dado
@@ -72,7 +71,7 @@ class _PetsScreenState extends State<PetsScreen> {
             return Text("${snapshot.error}");
           }
           return CircularProgressIndicator();
-        }
+        },
         
         ),
         
@@ -93,12 +92,12 @@ class Pet{
   Pet({required this.nome, required this.imageurl,required this.idade, required this.comportamento,
   required this.porte, required this.location, required this.tel});
   
-  factory Pet.fromJson(Map<String, dynamic>json){
+  factory Pet.fromJson(Map<String, dynamic> json){
     return Pet(  
     nome: json['name'],
-    imageurl: json['imageurl'],
+    imageurl: json['imageUrl'],
     idade: json['age'],
-    comportamento: json['behabior'],
+    comportamento: json['behavior'],
     porte:  json['size'],
     location: json['location'],
     tel: json['phoneNumber']);
@@ -154,7 +153,8 @@ class PetListItem extends StatelessWidget{
     );
   }
 }
-*/
+
+/*
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -308,3 +308,4 @@ class PetListItem extends StatelessWidget {
     );
   }
 }
+*/
