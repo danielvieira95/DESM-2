@@ -38,7 +38,7 @@ class _PetsScreenState extends State<PetsScreen> {
   }
   Future<List<Pet>> consultaPet() async{
     final response = await http.get(Uri.parse('https://raw.githubusercontent.com/giovannamoeller/pets-api/main/db.json'));
-    if(response.statusCode ==200){
+    if(response.statusCode==200){
       final parsed = jsonDecode(response.body);
       print(parsed);
       List<dynamic> petJson = parsed['pets'];
