@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(Home());
-  
+
 }
 
 class Home extends StatelessWidget {
@@ -29,6 +29,10 @@ class PetsScreen extends StatefulWidget {
 }
 
 class _PetsScreenState extends State<PetsScreen> {
+  // Função do tipo Future que vai receber atualização de dados a partir da api
+  Future<List<Pet>> consultaPet() async{
+   final response = await http.get(Uri.parse('https://raw.githubusercontent.com/giovannamoeller/pets-api/main/db.json'));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
