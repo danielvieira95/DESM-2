@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http; // biblioteca para requisições http.get
+import 'dart:convert'; // biblioteca para conversao de json
 void main() {
   runApp(Home());
 
@@ -32,6 +33,18 @@ class _PetsScreenState extends State<PetsScreen> {
   // Função do tipo Future que vai receber atualização de dados a partir da api
   Future<List<Pet>> consultaPet() async{
    final response = await http.get(Uri.parse('https://raw.githubusercontent.com/giovannamoeller/pets-api/main/db.json'));
+   if(response.statusCode == 200)
+   {
+        final parsed = jsonDecode(response.body); // realiza o parse do json da api
+        List<dynamic>petjson =parsed(['pets']);
+        return petjson.map((json))=>Pets.fromJson((json)).tolist();
+   }
+   else{
+    print(response.statusCode);
+    throw Exception("Falha ao consumir api");
+   }
+   
+
   }
   @override
   Widget build(BuildContext context) {
