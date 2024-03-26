@@ -30,14 +30,17 @@ class PetsScreen extends StatefulWidget {
 }
 
 class _PetsScreenState extends State<PetsScreen> {
+  late Future<List<Pet>> futurePet; // late controla o estado futuro dos dados a partir da api
+
   // Função do tipo Future que vai receber atualização de dados a partir da api
-  Future<List<Pet>> consultaPet() async{
+   Future<List<Pet>>consultaPet() async{
    final response = await http.get(Uri.parse('https://raw.githubusercontent.com/giovannamoeller/pets-api/main/db.json'));
+   print(response.body);
    if(response.statusCode == 200)
    {
         final parsed = jsonDecode(response.body); // realiza o parse do json da api
         List<dynamic> petjson = parsed(['pets']);
-        return petjson.map((json)=>Pet.fromJson(json)).toList();
+        return petjson.map((json)=> Pet.fromJson(json)).toList();
         
    }
    else{
@@ -48,12 +51,20 @@ class _PetsScreenState extends State<PetsScreen> {
 
   }
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    futurePet = consultaPet(); // variavel para armazenar os dados vindos da api
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("App Pet"),
       ),
       body: Column(
+        children: [
+          ElevatedButton(onPressed: consultaPet, child: Text("Verificar")),
+        ],
 
       ),
     );
@@ -76,7 +87,7 @@ class Pet{
    required this.tel} );
 
    // funçao para separar os dados da api em cada campo da classe
-   factory Pet.fromJson(Map<String,dynamic>json){
+   factory Pet.fromJson(Map<String,dynamic > json){
     return Pet(
       nome: json['name'], 
       imageurl: json['imageUrl'], 
