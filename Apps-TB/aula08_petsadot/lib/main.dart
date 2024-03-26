@@ -36,8 +36,9 @@ class _PetsScreenState extends State<PetsScreen> {
    if(response.statusCode == 200)
    {
         final parsed = jsonDecode(response.body); // realiza o parse do json da api
-        List<dynamic>petjson =parsed(['pets']);
-        return petjson.map((json))=>Pets.fromJson((json)).tolist();
+        List<dynamic> petjson = parsed(['pets']);
+        return petjson.map((json)=>Pet.fromJson(json)).toList();
+        
    }
    else{
     print(response.statusCode);
@@ -57,4 +58,33 @@ class _PetsScreenState extends State<PetsScreen> {
       ),
     );
   }
+}
+
+class Pet{
+  // Variaveis para consumir os dados da api
+  final String nome; 
+  final String imageurl;
+  final String idade;
+  final String comportamento;
+  final String porte;
+  final String location;
+  final String tel;
+
+  // Criar construtor
+  Pet({required this.nome,required this.imageurl, required this.idade,
+   required this.comportamento, required this.porte, required this.location, 
+   required this.tel} );
+
+   // funçao para separar os dados da api em cada campo da classe
+   factory Pet.fromJson(Map<String,dynamic>json){
+    return Pet(
+      nome: json['name'], 
+      imageurl: json['imageUrl'], 
+      idade: json['age'],
+       comportamento: json['behavior'], 
+       porte: json['size'], 
+       location: json['location'],
+        tel: json['phoneNumber']);
+   }
+
 }
