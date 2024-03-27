@@ -11,6 +11,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.white,
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text("App aula 08 exemplo"),
@@ -33,9 +36,12 @@ class Home extends StatelessWidget {
             children: [
               TextField(
              keyboardType: TextInputType.name,
-             decoration: InputDecoration(labelText: "Digite seu nome") ,
-             cursorColor: Colors.white,
+             decoration: InputDecoration(style: Textstyle(),
+             labelText: "Digite seu nome") ,
+             
              controller: nome,
+             
+             
               ),
               TextField(
              keyboardType: TextInputType.number,
