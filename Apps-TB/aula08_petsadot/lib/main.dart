@@ -30,24 +30,27 @@ class PetsScreen extends StatefulWidget {
 }
 
 class _PetsScreenState extends State<PetsScreen> {
-  late Future<List<Pet>> futurePet; // late controla o estado futuro dos dados a partir da api
+  late Future<List<Pet>> futurePet; 
+  @override // late controla o estado futuro dos dados a partir da api
 void initState() {
     // TODO: implement initState
     super.initState();
     futurePet = consultaPet(); // variavel para armazenar os dados vindos da api
   }
+
   // Função do tipo Future que vai receber atualização de dados a partir da api
    Future<List<Pet>> consultaPet() async{
    final response = await http.get(Uri.parse('https://raw.githubusercontent.com/giovannamoeller/pets-api/main/db.json'));
-   print(response.body);
+   //print(response.body);
    
-   if(response.statusCode == 200)
+   if(response.statusCode==200)
    {
         final parsed = jsonDecode(response.body);
-        print(parsed); // realiza o parse do json da api
-        
-        List<dynamic> petjson = parsed(['pets']);
-        return petjson.map((json)=> Pet.fromJson(json)).toList();
+        //print(parsed); // realiza o parse do json da api
+        print(parsed['pets']);
+        List<dynamic> petJson = parsed['pets'];
+
+        return petJson.map((json)=> Pet.fromJson(json)).toList();
         
    }
    else{
@@ -65,11 +68,12 @@ void initState() {
         title: Text("App Pet"),
       ),
       body: Center(
-        child: FutureBuilder<List<Pet>>(
+      child: FutureBuilder<List<Pet>>(
           future: futurePet,
           builder: (context,snapshot){
            if(snapshot.hasData){
             return ListView.builder(
+              itemCount: snapshot.data!.length,
               itemBuilder: (context,index){
               return PetListItem(pet:snapshot.data![index]);
               });
@@ -107,10 +111,10 @@ class Pet{
       nome: json['name'], 
       imageurl: json['imageUrl'], 
       idade: json['age'],
-       comportamento: json['behavior'], 
-       porte: json['size'], 
-       location: json['location'],
-        tel: json['phoneNumber']);
+      comportamento: json['behavior'], 
+      porte: json['size'], 
+      location: json['location'],
+      tel: json['phoneNumber']);
    }
 
 }
