@@ -48,7 +48,7 @@ class Telaprincipal extends StatefulWidget {
 
 class _TelaprincipalState extends State<Telaprincipal> {
   _publicarpost() async {
-    var url = Uri.parse("http://192.168.15.10:3000/dados");
+    var url = Uri.parse("https://raw.githubusercontent.com/danielvieira95/DESM-2/master/db.json");
 
     var response = await  http.post(
       url,
