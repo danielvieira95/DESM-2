@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Telacliente extends StatefulWidget {
-  const Telacliente({super.key});
+  String mensagem;
+  Telacliente(this.mensagem,{super.key});
 
   @override
   State<Telacliente> createState() => _TelaclienteState();
@@ -18,6 +19,7 @@ class _TelaclienteState extends State<Telacliente> {
       ),
       body: Column(
         children: [
+          Text("Passagem de parametros teste ${widget.mensagem}",style: TextStyle(fontSize: 20),),
           
           Produtos(nomeprod: "PS5", img: "https://m.media-amazon.com/images/I/71YBU9c7qlL._AC_SX679_.jpg",qtde: 1, valorprod: 5000.00),
           Produtos(nomeprod: "Iphone", img: "https://m.media-amazon.com/images/I/81YSmKnlijL.__AC_SY445_SX342_QL70_ML2_.jpg",qtde: 1, valorprod: 8000),

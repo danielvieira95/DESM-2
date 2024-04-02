@@ -23,7 +23,7 @@ class _LoginState extends State<Login> {
     }
     else if(user.text == "daniel" && senha.text =="1245" && op==2){
       print("Login cliente");
-      Navigator.push(context, MaterialPageRoute(builder:(context)=> Telacliente()));
+      Navigator.push(context, MaterialPageRoute(builder:(context)=> Telacliente("DANIEL")));
     }
     }
 
