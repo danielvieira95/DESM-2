@@ -20,10 +20,12 @@ class _LoginState extends State<Login> {
     if(user.text == "daniel" && senha.text =="1245" && op==1){
       print("Login administrador");
       Navigator.push(context, MaterialPageRoute(builder:(context)=> Telaprodutoscadastro()));
+     // Navigator.pushNamed(context, "/telaproduto");
     }
     else if(user.text == "daniel" && senha.text =="1245" && op==2){
       print("Login cliente");
-      Navigator.push(context, MaterialPageRoute(builder:(context)=> Telacliente("DANIEL")));
+    Navigator.push(context, MaterialPageRoute(builder:(context)=> Telacliente("DANIEL")));
+    //Navigator.pushNamed(context, "/telaclientes");
     }
     }
 
@@ -103,7 +105,7 @@ class _LoginState extends State<Login> {
               ],
             ),
             
-           ElevatedButton(onPressed: _verificarlogin, child: Text("Entrar"))
+           ElevatedButton(onPressed: _verificarlogin, child: Text("Entrar")),
           ],
         ),
       ),
