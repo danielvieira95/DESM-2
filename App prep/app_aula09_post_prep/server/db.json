@@ -1,6 +1,159 @@
 {
-    
-"dados": {
-    
-}
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "Hambúrguer",
+      "descricao": "Pão, bife de hambúrguer 90g, salada e batata.",
+      "preco": 8.5,
+      "categoria_id": 1
+    },
+    {
+      "Professor": " Daniel Filipe Vieira",
+      "id": "4"
+    },
+    {
+      "id": "6",
+      "nome": "Coca cola 600ml",
+      "descricao": "",
+      "preco": 7.5,
+      "categoria_id": 2
+    },
+    {
+      "id": "ef6d",
+      "nome": "Hambúrguer de frango",
+      "descricao": "Pão, bife de hambúrguer 90g de frango, salada e batata.",
+      "preco": 9.5,
+      "categoria_id": 1
+    },
+    {
+      "id": "0906",
+      "nome": "Hambúrguer de picanha",
+      "descricao": "Pão, bife de hambúrguer 90g de frango, salada e batata.",
+      "preco": 9.5,
+      "categoria_id": 1
+    },
+    {
+      "id": "bbdb",
+      "Disciplina": "Desenvolvimento Mobile",
+      "Curso": "Ads",
+      "Escola": "Senai Roberto Mange"
+    },
+    {
+      "id": "aa46",
+      "Disciplina": "Desenvolvimento Mobile",
+      "Curso": "Ads",
+      "Escola": "Senai Roberto Mange"
+    },
+    {
+      "id": "a35a",
+      "Disciplina": "Desenvolvimento Mobile",
+      "Curso": "Ads",
+      "Escola": "Senai Roberto Mange"
+    },
+    {
+      "id": "2488",
+      "Disciplina": "Desenvolvimento Mobile",
+      "Curso": "Ads",
+      "Escola": "Senai Roberto Mange"
+    },
+    {
+      "id": "4636",
+      "Disciplina": "Desenvolvimento Mobile",
+      "Curso": "Ads",
+      "Escola": "Senai Roberto Mange"
+    },
+    {
+      "id": "2034",
+      "Disciplina": "Desenvolvimento Mobile",
+      "Curso": "Ads",
+      "Escola": "Senai Roberto Mange"
+    },
+    {
+      "id": "5591",
+      "Professor": "Daniel Vieira"
+    },
+    {
+      "id": "55d6",
+      "Professor": "Daniel Vieira"
+    },
+    {
+      "id": "e22c",
+      "Professor": "Daniel Vieira"
+    },
+    {
+      "id": "7bfa",
+      "Professor": "Daniel Vieira"
+    },
+    {
+      "id": "6c21",
+      "nome": "Hambúrguer de picanha",
+      "descricao": "Pão, bife de hambúrguer 150g de frango, salada e batata.",
+      "preco": 9.5,
+      "categoria_id": 1
+    },
+    {
+      "id": "f4cc",
+      "nome": "Hambúrguer de picanha",
+      "descricao": "Pão, bife de hambúrguer 150g de picanha, salada e batata.",
+      "preco": 9.5,
+      "categoria_id": 1
+    },
+    {
+      "id": "69bc",
+      "nome": "Hambúrguer de picanha",
+      "descricao": "Pão, bife de hambúrguer 150g de picanha, salada e batata.",
+      "preco": 9.5,
+      "categoria_id": 1
+    },
+    {
+      "id": "3748",
+      "nome": "Hambúrguer de picanha",
+      "descricao": "Pão, bife de hambúrguer 150g de picanha, salada e batata.",
+      "preco": 9.5,
+      "categoria_id": 1
+    },
+    {
+      "id": "3e53",
+      "nome": "Hambúrguer de picanha",
+      "descricao": "Pão, bife de hambúrguer 150g de picanha, salada e batata.",
+      "preco": 9.5,
+      "categoria_id": 1
+    },
+    {
+      "id": "66c4",
+      "nome": "Hambúrguer de picanha",
+      "descricao": "Pão, bife de hambúrguer 290g de frango, salada e batata.",
+      "preco": 9.5,
+      "categoria_id": 1
+    },
+    {
+      "id": "2382",
+      "nome": "Hambúrguer de picanha",
+      "descricao": "Pão, bife de hambúrguer 290g de frango, salada e batata.",
+      "preco": 9.5,
+      "categoria_id": 1
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nome": "Hambúrgueres"
+    },
+    {
+      "id": "2",
+      "nome": "Refrigerantes"
+    },
+    {
+      "id": "e230",
+      "Sobremesa": "Sorvete de chocolate"
+    },
+    {
+      "id": "db94",
+      "Sobremesa": "Sorvete de chocolate"
+    },
+    {
+      "id": "f9f5",
+      "Sobremesa": "Sorvete Kibom"
+    }
+  ]
 }
