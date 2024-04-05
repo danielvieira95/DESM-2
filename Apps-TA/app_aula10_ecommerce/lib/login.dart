@@ -1,3 +1,5 @@
+import 'package:app_aula10_ecommerce/telacompra.dart';
+import 'package:app_aula10_ecommerce/telaproduto.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -15,6 +17,7 @@ class _LoginState extends State<Login> {
   _login(){
     if(user.text =="daniel" && senha.text=="1234" && op ==0){
       print("Login Administrador");
+      Navigator.push(context,MaterialPageRoute(builder: (context)=>Telaproduto()));
       setState(() {
         nome = "adm";
       });
@@ -22,6 +25,7 @@ class _LoginState extends State<Login> {
 
     }
    else if(user.text=="daniel" && senha.text=="1234" && op==1){
+    Navigator.push(context,MaterialPageRoute(builder: (context)=>TelaCliente()));
       print("Login Cliente");
       setState(() {
         nome = "cliente";
