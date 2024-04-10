@@ -1,0 +1,26 @@
+[{
+      "produtos": [
+     {
+        "id": "1",
+        "nome": "Telefone",
+        "valor":  "2500.00"
+    },
+    {
+        "id": "2",
+        "nome": "Notebook",
+        "valor":  "6000.00"
+    },
+    {
+        "id": "3",
+        "nome": "Televisao",
+        "valor":  "4600.00"
+    },
+    {
+         "id": "4",
+         "nome": "Ar condicionado",
+         "valor":  "3200"
+    }
+  
+  ]
+
+}]
