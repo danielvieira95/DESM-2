@@ -29,6 +29,8 @@ class _HomeState extends State<Home> {
     http.Response resposta= await http.get(Uri.parse('http://192.168.15.10:3000/produtos'));
    //List<dynamic> dados = json.decode(resposta.body);
   var dados = jsonDecode(resposta.body) as List;
+ // print(dados[0]["nome"]);
+  // print(dados[0]["valor"]);
    minhalista = Produtos_n(dados);
   print(minhalista.prod);
   minhalista.prod.forEach((element) {
