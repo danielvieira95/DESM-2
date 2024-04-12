@@ -50,9 +50,9 @@ class _TelaprincipalState extends State<Telaprincipal> {
   _post(){
    // estrutura do arquivo json para realizar o post
     Map<String, dynamic> produto_a= {
-     "id":"8",
-     "nome":"PS5",
-     "valor":"5000"
+     "id":"6",
+     "nome":"PS4",
+     "valor":"3200"
     };
     Map<String,dynamic> mensagem={
       "title": "Desenvolvimento Mobile 2",
@@ -73,12 +73,12 @@ class _TelaprincipalState extends State<Telaprincipal> {
   }
   // função para deletar um item da api
   _deletepost(){
-    http.delete(Uri.parse('http://192.168.56.1:3000/produtos/8'));
+    http.delete(Uri.parse('http://192.168.56.1:3000/produtos/7'));
     print("Item deletado");
   }
   // put só irá funcionar com um dado que já estiver postado na api
   _modificarpost(){
-    http.put(Uri.parse('http://192.168.56.1:3000/produtos/8'),
+    http.put(Uri.parse('http://192.168.56.1:3000/produtos/7'),
     headers: <String,String>{
       'Content-type': 'application/json; charset=UTF-8',
     },
@@ -93,9 +93,8 @@ class _TelaprincipalState extends State<Telaprincipal> {
         title: Text( "App post http"),
       ),
       body: Center(
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          
+        child: Column(
+           mainAxisAlignment: MainAxisAlignment.spaceEvenly,        
           children: [
             Text(" Consumo de API ",style: TextStyle(fontSize: 18),),
             ElevatedButton(onPressed:_getdado, child: Text("Ler")),

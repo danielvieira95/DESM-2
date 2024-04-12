@@ -16,9 +16,14 @@
       "valor": "5500"
     },
     {
-      "id": "8",
+      "id": "7",
       "nome": "Nintendo Switch",
       "valor": "2800"
+    },
+    {
+      "id": "6",
+      "nome": "PS4",
+      "valor": "3200"
     }
   ]
 }
