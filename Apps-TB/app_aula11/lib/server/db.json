@@ -1,0 +1,29 @@
+{
+    "produtos": [
+      {
+        "id": "0",
+        "nome": "Ipad",
+        "valor": "5000"
+      },
+      {
+        "id": "1",
+        "nome": "Iphone",
+        "valor": "8000"
+      },
+      {
+        "id": "2",
+        "nome": "Notebook",
+        "valor": "5500"
+      },
+      {
+        "id": "7",
+        "nome": "Nintendo Switch",
+        "valor": "2800"
+      },
+      {
+        "id": "6",
+        "nome": "PS4",
+        "valor": "3200"
+      }
+    ]
+  }
