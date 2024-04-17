@@ -1,29 +1,44 @@
 {
-    "produtos": [
-      {
-        "id": "0",
-        "nome": "Ipad",
-        "valor": "5000"
-      },
-      {
-        "id": "1",
-        "nome": "Iphone",
-        "valor": "8000"
-      },
-      {
-        "id": "2",
-        "nome": "Notebook",
-        "valor": "5500"
-      },
-      {
-        "id": "7",
-        "nome": "Nintendo Switch",
-        "valor": "2800"
-      },
-      {
-        "id": "6",
-        "nome": "PS4",
-        "valor": "3200"
-      }
-    ]
-  }
+  "produtos": [
+    {
+      "id": "0",
+      "nome": "Ipad",
+      "valor": "5000"
+    },
+    {
+      "id": "1",
+      "nome": "Iphone",
+      "valor": "8000"
+    },
+    {
+      "id": "2",
+      "nome": "Notebook",
+      "valor": "5500"
+    },
+    {
+      "id": "7",
+      "nome": "Nintendo Switch",
+      "valor": "2800"
+    },
+    {
+      "id": "7ee6",
+      "nome": "PS5",
+      "valor": "3700"
+    },
+    {
+      "id": "a4a5",
+      "nome": "Mac Pro",
+      "valor": "15000"
+    },
+    {
+      "id": "736a",
+      "nome": "Xbox Series X",
+      "valor": "2500"
+    },
+    {
+      "id": "7e9d",
+      "nome": "Mac Pro",
+      "valor": "15000"
+    }
+  ]
+}

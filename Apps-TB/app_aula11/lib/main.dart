@@ -48,18 +48,39 @@ class _HomeState extends State<Home> {
   _post(){
     // estrutura do dado a ser publicado
     Map<String,dynamic>mensagem={
-      "id": "6",
+      //"id": "6",
       "nome":"PS5",
       "valor": "3700"
+    };
+    Map<String,dynamic>msg2={
+      //"id": "6",
+      "nome":"Mac Pro",
+      "valor": "15000"
     };
     // Metodo http post para realizar uma requisição 
     // http post Uri parse, headers. body
     http.post(
       Uri.parse(url),
       headers: <String,String>{
-        'Content type':'application/json; charset = UTF-8',
+        'Content-type':'application/json; charset=UTF-8',
       },
-      body:jsonEncode(mensagem) , // transforma a mensagem para o formato json para fazer o post
+      //body:jsonEncode(mensagem) , // transforma a mensagem para o formato json para fazer o post
+      body: jsonEncode(msg2),
+    );
+  }
+  _deletepost(){
+    // http delete é o metodo utilizado para deletar um produto da api
+    http.delete(Uri.parse('http://10.109.83.10:3000/produtos/5f01'));
+  }
+  // put 
+  // Url, header, body
+  // Json Encode formata a mensagem
+  _put(){
+    http.put(Uri.parse('http://10.109.83.10:3000/produtos/736a'),
+    headers: <String, String>{
+      'Content-type': 'application/json; charset=UTF-8', 
+    },
+    body: jsonEncode({"id":"8", "nome":"Xbox Series X","valor":"2500"}),
     );
   }
   @override
@@ -74,7 +95,10 @@ class _HomeState extends State<Home> {
           children: [
             Text("Get, Post, Put, delete http", style: TextStyle(fontSize: 18),),
             ElevatedButton(onPressed: _getdado, child: Text("Ler")), 
-            Text("",style: TextStyle(fontSize: 18),),
+            ElevatedButton(onPressed: _post, child: Text("Publicar")),
+            ElevatedButton(onPressed: _deletepost, child: Text("Deletar")),
+            ElevatedButton(onPressed: _put, child: Text("Alterar")),
+            
             Column(
               // exibe os dados no text
               // map faz o mapeamento dos dados na lista
