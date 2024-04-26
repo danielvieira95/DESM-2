@@ -38,13 +38,32 @@ class _LoginState extends State<Login> {
       print("Usuario encontrado");
       Navigator.push(context, MaterialPageRoute(builder: (context)=>Cadastroproduto()));
       encuser = false;
+      user.text="";
+      senha.text="";
 
     }
 
     else{
       print("Usuario nao encontrado, realize o cadastro");
+       ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text("Usuário não cadastrado"),duration: Duration(seconds: 2),),);
         encuser = false;
+        showDialog(
+          context: context,
+          builder: (BuildContext) {
+            return AlertDialog(
+              content: Text('Usuário inválido'),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('Fechar'))
+              ],
+            );
+          });
     }
+    
 
   }
   @override

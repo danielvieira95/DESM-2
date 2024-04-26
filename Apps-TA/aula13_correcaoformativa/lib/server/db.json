@@ -53,6 +53,30 @@
       "nome": "Nintendo switch",
       "valor": "2500",
       "qtde": "7"
+    },
+    {
+      "id": "Iphone 15",
+      "nome": "Iphone 15",
+      "valor": "8500",
+      "qtde": "6"
+    },
+    {
+      "id": "Xbox Series x",
+      "nome": "Xbox Series x",
+      "valor": "2800",
+      "qtde": "5"
+    },
+    {
+      "id": "controle",
+      "nome": "controle",
+      "valor": "300",
+      "qtde": "5"
+    },
+    {
+      "id": "Impressora 3d",
+      "nome": "Impressora 3d",
+      "valor": "3800",
+      "qtde": "2"
     }
   ],
   "usuarios": [
@@ -75,6 +99,16 @@
       "id": "admin",
       "login": "admin",
       "senha": "1234"
+    },
+    {
+      "id": "isa",
+      "login": "isa",
+      "senha": "123"
+    },
+    {
+      "id": "isa",
+      "login": "isa",
+      "senha": "123"
     }
   ]
 }

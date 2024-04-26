@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:aula13_correcaoformativa/prod.dart';
 import 'package:aula13_correcaoformativa/produto.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -35,6 +36,22 @@ class _CadastroprodutoState extends State<Cadastroproduto> {
     nomeprod.text ="";
     valor.text = "";
     qtde.text = "";
+    showDialog(
+          context: context,
+          builder: (BuildContext) {
+            return AlertDialog(
+              content: Text('Produto cadastrado ${nomeprod.text}'),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('Fechar'))
+              ],
+            );
+          });
+    
+    
   }
 
   @override
@@ -81,6 +98,10 @@ class _CadastroprodutoState extends State<Cadastroproduto> {
            ElevatedButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=>Produtos()));
            }, child: Text('Exibir')),
+           ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Produto_screen()));
+
+           }, child: Text("Screen produtos"))
 
         ],
       ),
