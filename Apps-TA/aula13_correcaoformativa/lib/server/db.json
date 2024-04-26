@@ -1,68 +1,80 @@
 {
-    "produtos": [
-      {
-        "id": "0",
-        "nome": "Chocolate",
-        "valor": "5.50",
-        "qtde": "3"
-      },
-      {
-        "id": "1",
-        "nome": "Shampoo",
-        "valor": "20.50",
-        "qtde": "7"
-      },
-      {
-        "id": "2",
-        "nome": "Picanha",
-        "valor": "120",
-        "qtde": "5"
-      },
-      {
-        "id": "af44",
-        "nome": "iphone",
-        "valor": "6000",
-        "qtde": "8"
-      },
-      {
-        "id": "0e5e",
-        "nome": "Chocotrio",
-        "valor": "8.00",
-        "qtde": "3"
-      },
-      {
-        "id": "04a0",
-        "nome": "Danete",
-        "valor": "10.90",
-        "qtde": "12"
-      },
-      {
-        "id": "b9cb",
-        "nome": "mouse",
-        "valor": "50",
-        "qtde": "3"
-      }
-    ],
-    "usuarios": [
-      {
-        "login": "admin",
-        "senha": "1234",
-        "id": "fb45"
-      },
-      {
-        "login": "filipe",
-        "senha": "1004",
-        "id": "4e0b"
-      },
-      {
-        "id": "4a9a",
-        "login": "daniel",
-        "senha": "100455"
-      },
-      {
-        "id": "98cb",
-        "login": "dan",
-        "senha": "2024"
-      }
-    ]
-  }
+  "produtos": [
+    {
+      "id": "0",
+      "nome": "Chocolate",
+      "valor": "5.50",
+      "qtde": "3"
+    },
+    {
+      "id": "1",
+      "nome": "Shampoo",
+      "valor": "20.50",
+      "qtde": "7"
+    },
+    {
+      "id": "2",
+      "nome": "Picanha",
+      "valor": "120",
+      "qtde": "5"
+    },
+    {
+      "id": "af44",
+      "nome": "iphone",
+      "valor": "6000",
+      "qtde": "8"
+    },
+    {
+      "id": "0e5e",
+      "nome": "Chocotrio",
+      "valor": "8.00",
+      "qtde": "3"
+    },
+    {
+      "id": "04a0",
+      "nome": "Danete",
+      "valor": "10.90",
+      "qtde": "12"
+    },
+    {
+      "id": "b9cb",
+      "nome": "mouse",
+      "valor": "50",
+      "qtde": "3"
+    },
+    {
+      "id": "PS5",
+      "nome": "PS5",
+      "valor": "3500",
+      "qtde": "5"
+    },
+    {
+      "id": "Nintendo switch",
+      "nome": "Nintendo switch",
+      "valor": "2500",
+      "qtde": "7"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "dan",
+      "login": "dan",
+      "senha": "2024"
+    },
+    {
+      "id": "filipe",
+      "login": "filipe",
+      "senha": "1408"
+    },
+    {
+      "id": "senaimobile",
+      "login": "senaimobile",
+      "senha": "2024"
+    },
+    {
+      "id": "admin",
+      "login": "admin",
+      "senha": "1234"
+    }
+  ]
+}
