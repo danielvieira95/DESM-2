@@ -16,6 +16,7 @@ class _LoginState extends State<Login> {
     // Scaffold faz parte do layout do app
     return Scaffold(
       // body corpo do scaffold
+      //backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -32,7 +33,7 @@ class _LoginState extends State<Login> {
                     child: TextFormField(
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                      icon: Icon(Icons.people_alt_outlined,color: Colors.blue,),
+                      icon: Icon(Icons.people_alt_outlined,color: Colors.red,),
                       hintText: "Digite seu nome"),// Mensagem no text form field
                       // icone do textformfield
                       controller: user,
@@ -44,7 +45,7 @@ class _LoginState extends State<Login> {
                     child: TextFormField(
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                      icon: Icon(Icons.key_outlined,),iconColor: Colors.blue,
+                      icon: Icon(Icons.key_outlined,),iconColor: Colors.red,
                       // suffix icon responsável por criar um icone no textformfield
                       // Icon button icone para o botão 
                       // exibir ? operador ternário
@@ -66,10 +67,25 @@ class _LoginState extends State<Login> {
                 ],
               ),
       
-            )
+            ),
+            ElevatedButton(onPressed: (){}, child: Text("Entrar")),
+            ElevatedButton(onPressed: (){}, child: Text("Cadastrar")),
           ],
         ),
       ),
     );
+  }
+}
+
+// Classe para realizar o mapeamento json através da api
+class Users{
+  String id;
+  String login;
+  String senha;
+  Users(this.id,this.login, this.senha);
+  // Função para mapear nossos dados após a leitura da api e
+  // retorna id, login  e senha
+  factory Users.fromJson(Map<String,dynamic>json){
+    return Users(json["id"],json["login"],json["senha"]);
   }
 }
