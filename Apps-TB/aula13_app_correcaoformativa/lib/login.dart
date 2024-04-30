@@ -33,6 +33,15 @@ class _MyWidgetState extends State<MyWidget> {
                   controller: user,
                  
                 ),
+                TextFormField(
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                  icon: Icon(Icons.key_outlined,color: Colors.blue,),
+                  hintText: "Digite sua senha"),// Mensagem no text form field
+                  // icone do textformfield
+                  controller: senha,
+                 
+                ),
               ],
             ),
 
