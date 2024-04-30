@@ -8,6 +8,8 @@ class MyWidget extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<MyWidget> {
+  TextEditingController user = TextEditingController();
+  TextEditingController senha = TextEditingController();
   @override
   Widget build(BuildContext context) {
     // Scaffold faz parte do layout do app
@@ -25,7 +27,11 @@ class _MyWidgetState extends State<MyWidget> {
                 TextFormField(
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                  icon: Icon(Icons.people_alt_outlined)),// icone do textformfield
+                  icon: Icon(Icons.people_alt_outlined,color: Colors.blue,),
+                  hintText: "Digite seu nome"),// Mensagem no text form field
+                  // icone do textformfield
+                  controller: user,
+                 
                 ),
               ],
             ),
