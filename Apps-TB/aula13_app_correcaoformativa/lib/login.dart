@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'; // pacotes do widget
 import 'package:http/http.dart' as http; // pacote http que permite fazer as requisições http
+import 'dart:convert'; // pacote para converter json
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -11,6 +12,31 @@ class _LoginState extends State<Login> {
   TextEditingController user = TextEditingController();
   TextEditingController senha = TextEditingController();
   bool exibir = false; // variavel para exibir ou nao a senha
+  _verificaLogin()async{
+   bool encuser = false; // variavel para setar quando o usuario for encontrado
+    String url = "http://10.109.83.10:3000/usuarios"; // url da api com os usuarios
+    http.Response resposta = await http.get(Uri.parse(url)); // resposta irá guardar o retorno da api
+    List clientes =<Users>[]; // cria uma lista chamada clientes que recebe minha classe users
+    print(resposta.statusCode);
+    var dados = json.decode(resposta.body) as List; // armazena em dados a minha resposta da api
+    clientes = json.decode(resposta.body) as List; // Lista clientes armazena os dados da api
+    print("${dados[0]["login"]} ${dados[0]["senha"]}");
+    for(int i=0; i<clientes.length;i++){
+       if(user.text == clientes[i]["login"] && senha.text == clientes[i]["senha"]){
+        encuser = true;
+        break;
+       }
+    }
+       if(encuser ==true){
+        print("Usuario ${user.text} encontrado");
+        encuser = false;
+       }
+       else{
+        print("Usuario ${user.text} nao encontrado");
+       }
+    }
+    
+  
   @override
   Widget build(BuildContext context) {
     // Scaffold faz parte do layout do app
@@ -68,7 +94,7 @@ class _LoginState extends State<Login> {
               ),
       
             ),
-            ElevatedButton(onPressed: (){}, child: Text("Entrar"),),
+            ElevatedButton(onPressed: _verificaLogin, child: Text("Entrar"),),
             ElevatedButton(onPressed: (){}, child: Text("Cadastrar")),
           ],
         ),
