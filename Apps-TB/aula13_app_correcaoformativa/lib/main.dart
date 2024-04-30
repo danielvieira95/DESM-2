@@ -7,11 +7,13 @@ void main() {
     // tema do app
     theme: ThemeData(   
     scaffoldBackgroundColor: Colors.white,
-    primaryColor: Colors.white,
-    primarySwatch: Colors.red
+    primaryColor: Colors.white, // cor primária
+    primarySwatch: Colors.red ,),// cor de botões 
+
+  
 
     
-    ),
+    
     home: Login(),
   ));
 }
