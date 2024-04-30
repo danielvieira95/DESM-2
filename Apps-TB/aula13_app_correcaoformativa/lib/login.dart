@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart'; // pacotes do widget
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<Login> createState() => _LoginState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _LoginState extends State<Login> {
   TextEditingController user = TextEditingController();
   TextEditingController senha = TextEditingController();
   @override
