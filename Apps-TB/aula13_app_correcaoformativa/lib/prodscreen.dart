@@ -2,24 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 // Classe produto tela
-class Produto extends StatefulWidget {
-  const Produto({super.key});
+class Produtoscreen extends StatefulWidget {
+  const Produtoscreen({super.key});
 
   @override
-  State<Produto> createState() => _ProdutoState();
+  State<Produtoscreen> createState() => _ProdutoscreenState();
 }
 
-class _ProdutoState extends State<Produto> {
-  List prod = <ProdItens>[];
+class _ProdutoscreenState extends State<Produtoscreen> {
+  // função que permite os dados serem exibidos de forma automatica na tela
+  void initState(){
+    super.initState();
+    _exibeprod();
+
+  }
+  
+  List dado = <ProdItens>[];
   _exibeprod()async{
     String url = "http://10.109.83.10:3000/produtos";
     http.Response resposta = await http.get(Uri.parse(url));
      // lista de produtos prod itens
-    List dado = json.decode(resposta.body) as List; // cria a variavel dado como lista para receber o json
-    print(dado);
-    setState(() {
-      prod = dado.map((json) => ProdItens.fromJson(json)).toList(); // transforma os dados como uma lista para poder exibir
+    
+    if(resposta.statusCode ==200){
+        setState(() {
+     = json.decode(resposta.body) as List<dynamic>; // cria a variavel dado como lista para receber o json
+    print(dado);// transforma os dados como uma lista para poder exibir
     });
+    }
+   
     
 
   }
