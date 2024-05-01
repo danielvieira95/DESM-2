@@ -1,3 +1,4 @@
+import 'package:aula13_app_correcaoformativa/produto.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -67,7 +68,10 @@ class _CadastroprodutoState extends State<Cadastroproduto> {
             
           ),
           ElevatedButton(onPressed:  _cadastrarprod, child: Text("Cadastrar")),
-          ElevatedButton(onPressed: _deleteprod, child: Text("Deletar"))
+          ElevatedButton(onPressed: _deleteprod, child: Text("Deletar")),
+          ElevatedButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Produto()));
+          }, child: Text("Produto")),
           
         ],
       ),
