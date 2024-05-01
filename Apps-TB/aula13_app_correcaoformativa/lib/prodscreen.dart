@@ -48,8 +48,8 @@ class _ProdutoscreenState extends State<Produtoscreen> {
                   title: Text("Nome: ${item["nome"]}",style: TextStyle(fontSize: 16),textAlign: TextAlign.center,),
                   subtitle: Column(
                     children: [
-                      Text("${item["valor"]} ",style: TextStyle(fontSize: 16),),
-                      Text(" ${item["qtde"]}",style: TextStyle(fontSize: 16)),
+                      Text("Valor: ${item["valor"]} ",style: TextStyle(fontSize: 16),),
+                      Text("Qtde: ${item["qtde"]}",style: TextStyle(fontSize: 16)),
                     ],
                   ),
 
