@@ -42,6 +42,7 @@ class _CadastrousuarioState extends State<Cadastrousuario> {
   Widget build(BuildContext context) {
     // Scaffold faz parte do layout do app
     return Scaffold(
+      appBar: AppBar(title: Text("Cadastro de usuário"),),
       // body corpo do scaffold
       //backgroundColor: Colors.white,
       body: Center(

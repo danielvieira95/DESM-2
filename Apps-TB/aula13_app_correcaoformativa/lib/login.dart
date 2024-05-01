@@ -1,3 +1,4 @@
+import 'package:aula13_app_correcaoformativa/cadastrocliente.dart';
 import 'package:flutter/material.dart'; // pacotes do widget
 import 'package:http/http.dart' as http; // pacote http que permite fazer as requisições http
 import 'dart:convert'; // pacote para converter json
@@ -76,7 +77,7 @@ class _LoginState extends State<Login> {
                       // Icon button icone para o botão 
                       // exibir ? operador ternário
                       // if( exibir == true icons.visibility  else visibility off)
-                      suffixIcon: IconButton(icon:  Icon(exibir ? Icons.visibility :Icons.visibility_off),onPressed: (){
+                      suffixIcon: IconButton(icon:  Icon(exibir ? Icons.visibility_off :Icons.visibility),onPressed: (){
                         setState(() {
                           exibir = !exibir; // inverte o estado da variavel exibir
                         });
@@ -95,7 +96,10 @@ class _LoginState extends State<Login> {
       
             ),
             ElevatedButton(onPressed: _verificaLogin, child: Text("Entrar"),),
-            ElevatedButton(onPressed: (){}, child: Text("Cadastrar")),
+            ElevatedButton(onPressed: (){
+              // chama a tela de cadastro
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Cadastrousuario()));
+            }, child: Text("Cadastrar")),
           ],
         ),
       ),
