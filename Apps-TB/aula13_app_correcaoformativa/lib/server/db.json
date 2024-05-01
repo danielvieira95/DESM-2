@@ -1,18 +1,6 @@
 {
   "produtos": [
     {
-      "id": "0",
-      "nome": "Chocolate",
-      "valor": "5.50",
-      "qtde": "3"
-    },
-    {
-      "id": "1",
-      "nome": "Shampoo",
-      "valor": "20.50",
-      "qtde": "7"
-    },
-    {
       "id": "2",
       "nome": "Picanha",
       "valor": "120",
@@ -73,10 +61,10 @@
       "qtde": "5"
     },
     {
-      "id": "Impressora 3d",
-      "nome": "Impressora 3d",
-      "valor": "3800",
-      "qtde": "2"
+      "id": "Laranja",
+      "nome": "Laranja",
+      "valor": "2.30",
+      "qtde": "5"
     }
   ],
   "usuarios": [
@@ -124,6 +112,16 @@
       "id": "admin",
       "login": "admin",
       "senha": "admin"
+    },
+    {
+      "id": "",
+      "login": "",
+      "senha": ""
+    },
+    {
+      "id": "",
+      "login": "",
+      "senha": ""
     }
   ]
 }

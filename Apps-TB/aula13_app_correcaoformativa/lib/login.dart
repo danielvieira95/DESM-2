@@ -1,4 +1,6 @@
 import 'package:aula13_app_correcaoformativa/cadastrocliente.dart';
+import 'package:aula13_app_correcaoformativa/cadastroproduto.dart';
+import 'package:aula13_app_correcaoformativa/produto.dart';
 import 'package:flutter/material.dart'; // pacotes do widget
 import 'package:http/http.dart' as http; // pacote http que permite fazer as requisições http
 import 'dart:convert'; // pacote para converter json
@@ -31,6 +33,9 @@ class _LoginState extends State<Login> {
        if(encuser ==true){
         print("Usuario ${user.text} encontrado");
         encuser = false;
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>Cadastroproduto()));
+        user.text ="";
+        senha.text ="";
        }
        else{
         print("Usuario ${user.text} nao encontrado");
