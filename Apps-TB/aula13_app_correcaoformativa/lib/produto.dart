@@ -39,7 +39,7 @@ class _ProdutoState extends State<Produto> {
                           style: TextStyle(fontSize: 18))).toList(),
                 ),
             ElevatedButton(onPressed: _exibeprod, child: Text("Exibir")),
-            ElevatedButton(onPressed: (){}, child: Text("Prod Screen"))
+            
             
       
           ],

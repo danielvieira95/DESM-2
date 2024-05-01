@@ -1,3 +1,4 @@
+import 'package:aula13_app_correcaoformativa/prodscreen.dart';
 import 'package:aula13_app_correcaoformativa/produto.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -72,7 +73,8 @@ class _CadastroprodutoState extends State<Cadastroproduto> {
           ElevatedButton(onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context)=>Produto()));
           }, child: Text("Produto")),
-          
+          ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Produtoscreen()));
+          }, child: Text("Prod Screen"))
         ],
       ),
     );

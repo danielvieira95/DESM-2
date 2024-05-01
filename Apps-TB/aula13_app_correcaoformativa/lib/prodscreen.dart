@@ -13,26 +13,26 @@ class _ProdutoscreenState extends State<Produtoscreen> {
   // função que permite os dados serem exibidos de forma automatica na tela
   void initState(){
     super.initState();
-    _exibeprod();
+    exibeprod();
 
   }
   
-  List dado = <ProdItens>[];
-  _exibeprod()async{
+  List dado = [];
+  Future<void> exibeprod()async{
     String url = "http://10.109.83.10:3000/produtos";
     http.Response resposta = await http.get(Uri.parse(url));
      // lista de produtos prod itens
     
     if(resposta.statusCode ==200){
         setState(() {
-     = json.decode(resposta.body) as List<dynamic>; // cria a variavel dado como lista para receber o json
+     dado = json.decode(resposta.body) as List<dynamic>; // cria a variavel dado como lista para receber o json
     print(dado);// transforma os dados como uma lista para poder exibir
     });
     }
    
-    
-
   }
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,22 +40,32 @@ class _ProdutoscreenState extends State<Produtoscreen> {
         title: Text("App Mercado produtos"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-             Column(
-                  children: prod.map((produto) => Text(
-                          "${produto.nome} - R\$ ${produto.valor} - ${produto.qtde}",
-                          style: TextStyle(fontSize: 18))).toList(),
-                ),
-            ElevatedButton(onPressed: _exibeprod, child: Text("Exibir")),
-            ElevatedButton(onPressed: (){}, child: Text("Prod Screen"))
+        child: ListView.builder(
+              itemCount: dado.length, // conta o tamanho da lista de dados
+              itemBuilder: (context,index){
+                final item = dado[index]; // variavel item que irá armazenar os elementos da lista
+                return ListTile(
+                  title: Text("Nome: ${item["nome"]}",style: TextStyle(fontSize: 16),textAlign: TextAlign.center,),
+                  subtitle: Column(
+                    children: [
+                      Text("${item["valor"]} ",style: TextStyle(fontSize: 16),),
+                      Text(" ${item["qtde"]}",style: TextStyle(fontSize: 16)),
+                    ],
+                  ),
+
+
+                );
+
+              }),
+            
+            //ElevatedButton(onPressed: _exibeprod, child: Text("Exibir")),
+           
             
       
-          ],
+      
         ),
-      ),
-    );
+      );
+    
   }
 }
 // classe produto itens
