@@ -7,12 +7,10 @@ class UsersDao{
   static const String _idade = 'idade';
   static const _hobbie = 'hobbie';
   static const _tablenome = 'tablepessoas';
-  static const String tabela = 'CREATE TABLE $_tablenome('
-  '$_id INTEREGER,'
-  '$_nome TEXT,'
-  '$_idade INTEREGER,'
-  '$_hobbie TEXT)';
-
+  //static const String tabela = 'CREATE TABLE $_tablenome('$_id TEXT,$_nome TEXT,$_idade TEXT,$_hobbie TEXT)';
+  static const String tabela = 'CREATE TABLE $_tablenome($_id TEXT, $_nome TEXT, $_idade TEXT, $_hobbie TEXT)';
+  
+   
   salvar(Users user)async{
     final Database db = await getDatabase();
     print("Banco de dados encontrado em: $db");
@@ -46,10 +44,10 @@ class UsersDao{
   
   }
   // lista todos os usuarios salvos
-  Future<List<Users>> listaruser(Users user)async{
+  Future<List<Users>> listaruser()async{
     print("Acessando banco de dados");
     final Database bd = await getDatabase(); // abre banco de dados
-    final List <Map<String,dynamic>> result  =await bd.query(tabela); // pega todos os dados da tabela
+    final List <Map<String,dynamic>> result  = await bd.query(tabela); // pega todos os dados da tabela
     print("Resultado $result");
     return  toList(result);
 
@@ -61,6 +59,7 @@ class UsersDao{
     return await db.delete(tabela,where:"$_nome" ,whereArgs:[nomeusuario] );
 
   }
+
 
   Map<String,dynamic> toMap(Users user){
     print("Convertendo usuarios em mapa de usuarios");
