@@ -36,7 +36,15 @@ class UsersDao{
   }
   
   // procura um usuario especifico
-  procuraruser(String nomeusuario){}
+  procuraruser(String nomeusuario)async{
+    print("Acessando banco de dados");
+    final Database bd = await getDatabase(); // abre banco de dados
+    final List <Map<String,dynamic>> result  =await bd.query(tabela,where:'$_nome = ?' ,whereArgs:[nomeusuario] ); // pega todos os dados da tabela
+    print("Resultado $result");
+    return  toList(result);
+
+  
+  }
   // lista todos os usuarios salvos
   Future<List<Users>> listaruser(Users user)async{
     print("Acessando banco de dados");
@@ -47,7 +55,10 @@ class UsersDao{
 
   }
   // apaga um usuario
-  deleteuser(){
+  deleteuser(String nomeusuario)async{
+    print("Deletando usuario $nomeusuario");
+    final Database db = await getDatabase();
+    return await db.delete(tabela,where:"$_nome" ,whereArgs:[nomeusuario] );
 
   }
 
