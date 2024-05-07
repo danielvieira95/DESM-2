@@ -77,6 +77,9 @@ void main() async {
     idade: Rocky.idade + 7,
   );
   await updateDog(Rocky);
+  
+ // deletando um elemento
+  deleteDog(1);
   print(await dogs());
 
 }
