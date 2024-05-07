@@ -17,7 +17,8 @@ class DogDao{
   final int idade = 0;
 Future<void> salvar(Dog dog)async{
   final  Database db = await recuperaBD();
-  db.insert('dogs', dog.toMap(),conflictAlgorithm: ConflictAlgorithm.replace);
+  db.insert('cachorros', dog.toMap(),conflictAlgorithm: ConflictAlgorithm.replace);
+  print(dog.nome);
 
  }
 // A method that retrieves all the dogs from the dogs table.
@@ -26,7 +27,7 @@ Future<void> salvar(Dog dog)async{
     final Database db = await recuperaBD();
 
     // Query the table for all the dogs.
-    final List<Map<String, Object?>> dogMaps = await db.query('dogs');
+    final List<Map<String, Object?>> dogMaps = await db.query('cachorros');
 
     // Convert the list of each dog's fields into a list of `Dog` objects.
     return [
@@ -45,7 +46,7 @@ Future<void> salvar(Dog dog)async{
 
     // Update the given Dog.
     await db.update(
-      'dogs',
+      'cachorros',
       dog.toMap(),
       // Ensure that the Dog has a matching id.
       where: 'id = ?',
@@ -60,7 +61,7 @@ Future<void> salvar(Dog dog)async{
 
     // Remove the Dog from the database.
     await db.delete(
-      'dogs',
+      'cachorros',
       // Use a `where` clause to delete a specific dog.
       where: 'id = ?',
       // Pass the Dog's id as a whereArg to prevent SQL injection.

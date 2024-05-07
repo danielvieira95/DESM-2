@@ -11,8 +11,8 @@ void main() async {
   ));
   Dog Rocky= Dog(id: 0, nome: "Rocky", idade: 1);
    Dog Jacare= Dog(id: 2, nome: "Jacare", idade: 13);
-  DogDao().salvar(Jacare);
-  print(await DogDao().dogs());
+  DogDao().salvar(Rocky);
+  print(DogDao().dogs());
   
 
   // Avoid errors caused by flutter upgrade.
@@ -170,6 +170,22 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("App BD"),
+        
+      ),
+      body: Column(
+        children: [
+          ElevatedButton(onPressed: (){
+            Dog Rocky= Dog(id: 3, nome: "Rocky", idade: 1);
+            DogDao().salvar(Rocky);
+          }, child: Text("Salvar")),
+          ElevatedButton(onPressed: (){
+         print(DogDao().dogs());
+          }, child: Text("Exibir")),
+        ],
+      ),
+    );
   }
 }
