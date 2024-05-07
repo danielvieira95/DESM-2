@@ -102,8 +102,18 @@ void main()  async{
     name: 'Jacare',
     age: 13,
   );
+    var Casca = Dog(
+    id: 3,
+    name: 'Casca',
+    age: 4,
+  );
+    var Marley = Dog(
+    id: 4,
+    name: 'Marley',
+    age: 7,
+  );
 
-  await insertDog(Jacare);
+  await insertDog(Marley);
 
   // Now, use the method above to retrieve all the dogs.
   print(await dogs()); // Prints a list that include Fido.
@@ -131,13 +141,15 @@ void main()  async{
 
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  
+  
 
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  TextEditingController nome = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -148,6 +160,10 @@ class _HomeState extends State<Home> {
       body: Column(
         children: [
           Text('Banco de dados'),
+          TextField(keyboardType: TextInputType.name,
+          decoration: InputDecoration(hintText: 'Digite o nome'),
+          controller: nome ,
+          ),
         ],
       ),
       );
