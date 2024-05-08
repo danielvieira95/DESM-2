@@ -1,129 +1,108 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart'; // pacote utilizado para criar a tabela do banco de dados
-import 'package:path/path.dart'; // pacote que pega o diretorio do banco de dados
+import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Para garantir que o Flutter esteja inicializado antes de acessar o banco de dados
+  await _insertInitialDog(); // Espera a inserção do cachorro inicial antes de construir o widget
   runApp(MaterialApp(
     home: Home(),
   ));
+}
 
- // getDatabasePath pega o caminho do banco de dados
-  final database = openDatabase(join(await getDatabasesPath(),'dogs.db'),
-  onCreate: (db, version) {
-    // Cria o banco de dados 
-    db.execute('CREATE TABLE dogs(id INTEGER PRIMARY KEY, nome TEXT, idade INTEGER)');
-  },version: 1);
+Future<void> _insertInitialDog() async {
+  var database = await _initializeDatabase();
+  var Rocky = Dog(id: 5, nome: "Rocky", idade: 2);
+  var Caju = Dog(id: 6, nome: "Caju", idade: 6);
+  await _insertDog(database, Caju);
+}
 
-  // salva informação
-  Future<void> insertDog(Dog dog)async{
-    final db = await database; // armazena em db o banco de dados
-    // conflictAlgorithm caso de erro tenta sobrescrever
-    db.insert('dogs', dog.toMap(),conflictAlgorithm: ConflictAlgorithm.replace); // salva a informação no banco de dados
-
-  }
-    // listar as informações salvas
-    Future<List<Dog>> dogs() async {
-    // Get a reference to the database.
-    final db = await database;
-
-    // Query the table for all the dogs.
-    final List<Map<String, Object?>> dogMaps = await db.query('dogs');
-
-    // Convert the list of each dog's fields into a list of `Dog` objects.
-    return [
-      for (final {
-            'id': id as int,
-            'nome': nome as String,
-            'idade': idade as int,
-          } in dogMaps)
-        Dog(id: id, nome: nome, idade: idade),
-    ];
-  }
-
-   // Função para alterar dados já salvos no banco de dados
-   Future<void> updateDog(Dog dog)async{
-    final db = await database;
-    await db.update('dogs',dog.toMap(), where: 'id = ?',whereArgs: [dog.id]);
-
-   }
-
-   // Funçao delete
-   Future<void> deleteDog(int id)async{
-    final db = await database; 
-    await db.delete('dogs',where:  'id = ?',whereArgs: [id]);
-    print("Deletando dado");
-
-   }
-  // insere dados
-  var Rocky = Dog(
-    id: 1,
-    nome: 'Rocky',
-    idade: 2,
+Future<Database> _initializeDatabase() async {
+  return openDatabase(
+    join(await getDatabasesPath(), 'dogs.db'),
+    onCreate: (db, version) {
+      db.execute(
+        'CREATE TABLE dogs(id INTEGER PRIMARY KEY, nome TEXT, idade INTEGER)',
+      );
+    },
+    version: 1,
   );
-  var Marley = Dog(
-    id: 3,
-    nome: 'Marley',
-    idade: 5,
-  );
-  var Jacare = Dog(
-    id: 2,
-    nome: 'Jacare',
-    idade: 13,
-  );
-  insertDog(Marley);
-  Rocky = Dog(
-    id: Rocky.id,
-    nome: Rocky.nome,
-    idade: Rocky.idade + 7,
-  );
-  await updateDog(Rocky);
-  
- // deletando um elemento
-  deleteDog(1);
-  print(await dogs());
+}
 
+Future<void> _insertDog(Database database, Dog dog) async {
+  await database.insert('dogs', dog.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace);
 }
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  late Future<List<Dog>> _dogs;
+
+  @override
+  void initState() {
+    super.initState();
+    _dogs = _fetchDogs();
+  }
+
+  Future<List<Dog>> _fetchDogs() async {
+    var database = await _initializeDatabase();
+    final List<Map<String, dynamic>> maps = await database.query('dogs');
+
+    return List.generate(maps.length, (i) {
+      return Dog(
+        id: maps[i]['id'],
+        nome: maps[i]['nome'],
+        idade: maps[i]['idade'],
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("APP BD"),
       ),
-      body: Column(
-        children: [
-          Text("App Banco de dados"),
-        ],
+      body: FutureBuilder<List<Dog>>(
+        future: _dogs,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            final dogs = snapshot.data!;
+            return ListView.builder(
+              itemCount: dogs.length,
+              itemBuilder: (context, index) {
+                final dog = dogs[index];
+                return ListTile(
+                  title: Text(dog.nome),
+                  subtitle: Text('Idade: ${dog.idade}'),
+                );
+              },
+            );
+          }
+        },
       ),
     );
   }
 }
-// Classe Dog
-class Dog{
+
+class Dog {
   final int id;
   final String nome;
   final int idade;
+
   Dog({required this.id, required this.nome, required this.idade});
-  // Função que converte os dados para formato Map
-  Map<String,Object?> toMap(){
-    return{
-      'id':id,
-      'nome':nome,
-      'idade':idade
-    };
+
+  Map<String, dynamic> toMap() {
+    return {'id': id, 'nome': nome, 'idade': idade};
   }
-
-  @override
-   String toString(){
-    return 'Dog{id: $id, nome: $nome, idade: $idade}';
-   }
-
 }
