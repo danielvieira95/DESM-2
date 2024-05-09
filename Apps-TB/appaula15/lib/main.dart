@@ -7,6 +7,13 @@ void main() {
     home:  Home(),
   ));
 }
+// função para inserir dados no banco de dados
+Future<void> _insertInitialDog() async {
+  var database = await _initializeDatabase();
+  var Rocky = Dog(id: 5, nome: "Rocky", idade: 2);
+  var Caju = Dog(id: 6, nome: "Caju", idade: 6);
+  await _insertDog(database, Caju);
+}
 // função para inicializar o banco de dados
 Future<Database> _initializeDatabase() async {
   return openDatabase(
@@ -33,18 +40,58 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  
+   late Future<List<Dog>> _dogs;
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+    _dogs = _fetchDogs();
+  }
+   Future<List<Dog>> _fetchDogs() async {
+    var database = await _initializeDatabase();
+    final List<Map<String, dynamic>> maps = await database.query('dogs');
+
+    return List.generate(maps.length, (i) {
+      return Dog(
+        id: maps[i]['id'],
+        nome: maps[i]['nome'],
+        idade: maps[i]['idade'],
+      );
+    });
+  }
+  @override
+   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('App banco de dados'),),
-      body: Column(
-        children: [
-          Text('Banco de dados'),
-        ],
+      appBar: AppBar(
+        title: Text("APP BD"),
+      ),
+      body: FutureBuilder<List<Dog>>(
+        future: _dogs,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
+            final dogs = snapshot.data!;
+            return ListView.builder(
+              itemCount: dogs.length,
+              itemBuilder: (context, index) {
+                final dog = dogs[index];
+                return ListTile(
+                  title: Text(dog.nome),
+                  subtitle: Text('Idade: ${dog.idade}'),
+                );
+              },
+            );
+          }
+        },
       ),
     );
   }
 }
+
+
 class Dog{
   final int id;
   String nome;
