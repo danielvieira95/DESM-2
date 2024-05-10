@@ -2,18 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart'; // pacote que permite a manipulação de banco de dados
 import 'package:path/path.dart'; // permite pegar o diretório de onde o bd é criado
 
-void main() {
+void main()async {
   runApp(MaterialApp(
     home:  Home(),
   ));
+   WidgetsFlutterBinding.ensureInitialized(); // Para garantir que o Flutter esteja inicializado antes de acessar o banco de dados
+  await _insertInitialDog(); // Espera a inserção do cachorro inicial antes de construir o widget
+  var Rocky = Dog(id: 5, nome: "Rocky", idade: 5);
+  await updateDog(Rocky);
 }
 // função para inserir dados no banco de dados
 Future<void> _insertInitialDog() async {
   var database = await _initializeDatabase();
   var Rocky = Dog(id: 5, nome: "Rocky", idade: 2);
   var Caju = Dog(id: 6, nome: "Caju", idade: 6);
-  await _insertDog(database, Caju);
+  //await _insertDog(database, Caju);
+ // await _insertDog(database, Rocky);
+  await deleteDog(6);
 }
+
 // função para inicializar o banco de dados
 Future<Database> _initializeDatabase() async {
   return openDatabase(
@@ -31,7 +38,17 @@ Future<void> _insertDog(Database database, Dog dog) async {
   await database.insert('dogsa', dog.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace);
 }
+Future<void> deleteDog(int id)async{
+    final db = await _initializeDatabase(); 
+    await db.delete('dogsa',where:  'id = ?',whereArgs: [id]);
+    print("Deletando dado");
+}
+// atualiza uma informação do banco de dados
+Future<void> updateDog(Dog dog)async{
+    final db = await _initializeDatabase();
+    await db.update('dogsa',dog.toMap(), where: 'id = ?',whereArgs: [dog.id]);
 
+   }
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -49,7 +66,7 @@ class _HomeState extends State<Home> {
   }
    Future<List<Dog>> _fetchDogs() async {
     var database = await _initializeDatabase();
-    final List<Map<String, dynamic>> maps = await database.query('dogs');
+    final List<Map<String, dynamic>> maps = await database.query('dogsa');
 
     return List.generate(maps.length, (i) {
       return Dog(
