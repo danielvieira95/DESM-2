@@ -18,6 +18,7 @@ class Appaudio extends StatefulWidget {
 class _AppaudioState extends State<Appaudio> {
   late AudioPlayer player = AudioPlayer(); // variavel para armazenar o estado do audio player
   @override //polimorfismo para reescrita de função
+  // função que pré carrega as informações no app
   void initState(){
     super.initState(); // inicia o app para carregar o audio
     // cria o player de audio
@@ -36,6 +37,14 @@ class _AppaudioState extends State<Appaudio> {
 
   }
 
+   @override
+   // função para limpar o player
+  void dispose() {
+    // Release all sources and dispose the player.
+    player.dispose();    
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,5 +57,22 @@ class _AppaudioState extends State<Appaudio> {
         ),
       );
     
+  }
+}
+
+class PlayerWidget extends StatefulWidget {
+  
+  final AudioPlayer player; // variavel player
+  // construtor classe player widget
+  const PlayerWidget({required this.player,super.key});
+
+  @override
+  State<PlayerWidget> createState() => _PlayerWidgetState();
+}
+
+class _PlayerWidgetState extends State<PlayerWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
