@@ -27,9 +27,10 @@ class _AppaudioState extends State<Appaudio> {
     player.setReleaseMode(ReleaseMode.stop); // para o audio
     // carrega o app antes de iniciar o audio
      WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await player.resume();
       await player.setSource(UrlSource('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'));
       //await player.setSource(UrlSource('https://music.youtube.com/playlist?list=RDCLAK5uy_lJJ_tIQ2KklmnTSpQ2dWTcARr2jR6YBE4'));
-      await player.resume();
+     // await player.setSourceAsset(path); pegar audio do diretorio do projeto
       
      
     });
@@ -53,6 +54,9 @@ class _AppaudioState extends State<Appaudio> {
           "App Music"),
         ),
         body: Column(
+          children: [
+            PlayerWidget(player: player),
+          ],
 
         ),
       );
@@ -67,7 +71,8 @@ class PlayerWidget extends StatefulWidget {
   const PlayerWidget({required this.player,super.key});
 
   @override
-  State<PlayerWidget> createState() => _PlayerWidgetState();
+  State<PlayerWidget> createState () => _PlayerWidgetState();
+  
 }
 
 class _PlayerWidgetState extends State<PlayerWidget> {
