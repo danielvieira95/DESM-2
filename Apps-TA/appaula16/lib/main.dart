@@ -17,6 +17,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late AudioPlayer player = AudioPlayer(); // variavel que armazena o objeto audio player
+  late AudioPlayer player1 = AudioPlayer(); // variavel para o segundo player
   @override
   void initState(){
     super.initState();
@@ -28,7 +29,8 @@ class _HomeState extends State<Home> {
       await player.setSource(UrlSource('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'));
       //await player.setSource(UrlSource('https://music.youtube.com/playlist?list=RDCLAK5uy_lJJ_tIQ2KklmnTSpQ2dWTcARr2jR6YBE4'));
      // await player.setSourceAsset(path); pegar audio do diretorio do projeto
-      
+      await player1.resume();
+      await player1.setSource(UrlSource('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3'));
      
     });
 
@@ -48,6 +50,8 @@ class _HomeState extends State<Home> {
     ),
     body: Column(
       children: [
+        PlayerWidget(player: player),
+         PlayerWidget(player: player1),
 
       ],
     ),
@@ -61,7 +65,10 @@ class PlayerWidget extends StatefulWidget{
   const PlayerWidget({required this.player,super.key}); // construtor 
 
   @override
-  State<PlayerWidget> createState () => _PlayerWidgetState();
+  State<PlayerWidget> createState () {
+ return  _PlayerWidgetState();
+  
+}
 }
   class _PlayerWidgetState extends State<PlayerWidget>{
      PlayerState? _playerState;
@@ -200,7 +207,24 @@ class PlayerWidget extends StatefulWidget{
       });
     });
   }
+   Future<void> _play() async {
+    await player.resume();
+    setState(() => _playerState = PlayerState.playing);
   }
-  
 
+  Future<void> _pause() async {
+    await player.pause();
+    setState(() => _playerState = PlayerState.paused);
+  }
+
+  Future<void> _stop() async {
+    await player.stop();
+    setState(() {
+      _playerState = PlayerState.stopped;
+      _position = Duration.zero;
+    });
+  }
+}
+  
+  
 
