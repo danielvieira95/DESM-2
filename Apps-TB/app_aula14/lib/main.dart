@@ -3,7 +3,8 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Para garantir que o Flutter esteja inicializado antes de acessar o banco de dados
+  WidgetsFlutterBinding.ensureInitialized(); // Para garantir que o Flutter esteja inicializado antes de acessar o
+  // banco de dados
   await _insertInitialDog(); // Espera a inserção do cachorro inicial antes de construir o widget
   runApp(MaterialApp(
     home: Home(),
@@ -14,7 +15,9 @@ Future<void> _insertInitialDog() async {
   var database = await _initializeDatabase();
   var Rocky = Dog(id: 5, nome: "Rocky", idade: 2);
   var Caju = Dog(id: 6, nome: "Caju", idade: 6);
-  await _insertDog(database, Caju);
+  var Jacare = Dog(id: 7, nome: "Jacare", idade: 13);
+  //await _insertDog(database, Caju);
+  await _insertDog(database, Jacare);
 }
 
 Future<Database> _initializeDatabase() async {
