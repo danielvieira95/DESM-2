@@ -14,18 +14,18 @@
       "nota": "3"
     },  
     {
-      "nome": "Meu Amigo Totoro",
-      "imagem": "https://i0.wp.com/studioghibli.com.br/wp-content/uploads/2020/04/meu-amigo-totoro-dvd-vers%C3%A1til.jpg",
+      "nome": "Homem de ferro 3",
+      "imagem": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/C0BA59D770EDF31BD282925F3C7D69A0A9F404CBBC44BE12A7BB310412C42FC7/scale?width=1200&aspectRatio=1.78&format=webp",
       "duração": "3 horas",
-      "ano de lançamento": "2000",
+      "ano de lançamento": "2015",
       "nota": "5"
     },  
     {
-      "nome": "Princesa Mononoke",
-      "imagem": "https://i0.wp.com/studioghibli.com.br/wp-content/uploads/2020/04/Princesa-Mononoke-DVD-capa-vers%C3%A1til.jpg",
-      "duração": "4 horas",
-      "ano de lançamento": "2000",
-      "nota": "2"
+       "nome": "Vingadores",
+      "imagem": "https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/89/43/82/20052140.jpg",
+      "duração": "3 horas",
+      "ano de lançamento": "2012",
+      "nota": "5"
     },  
     {
       "nome": "Castelo Animado",
@@ -35,17 +35,17 @@
       "nota": "4"
     },  
     {
-      "nome": "A Viagem de Chihiro",
-      "imagem": "https://br.web.img3.acsta.net/pictures/210/527/21052756_20131024195513383.jpg"
+      "nome": "Mario Bros",
+      "imagem": "https://fly.metropoles.cloud/upload/q_85,w_600/https://uploads.metropoles.cloud/wp-content/uploads/2023/04/05144048/Super-Mario-Bros.-O-Filme-1.jpg",
       "duração": "2 horas",
-      "ano de lançamento": "2004",
+      "ano de lançamento": "2023",
       "nota": "5"
     },
     {
-      "nome": "As Memórias de Marnie",
-      "imagem": "https://www.itaucinemas.com.br/_img/_filmes/1859_capa.jpg",
+       "nome": "Velozes e Furiosos 10",
+      "imagem": "https://br.web.img2.acsta.net/pictures/23/05/16/22/53/0156803.jpg",
       "duração": "3 horas",
-      "ano de lançamento": "2002",
-      "nota": "3"
+      "ano de lançamento": "2023",
+      "nota": "5"
     }
   ]
