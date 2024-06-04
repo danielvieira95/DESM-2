@@ -8,10 +8,11 @@ void main() {
     // AnimatedSplashScreen define o tipo de animação da entrada do app
     home: AnimatedSplashScreen(
       duration: 3000, // tempo de duração
-      splash: Icons.home, // qual elemento será colocado no splash icone, texto, imagem
+     // splash: Icons.home, // qual elemento será colocado no splash icone, texto, imagem
+     splash: Text('Desenvolvimento Mobile 2',style: TextStyle(fontSize: 20),),
        nextScreen: MainScreen(), // chama a próxima tela
-      splashTransition: SplashTransition.fadeTransition, // escolhe o tipo de transição
-      pageTransitionType: PageTransitionType.leftToRight, // define o tipo de transição para a página
+      splashTransition: SplashTransition.rotationTransition, // escolhe o tipo de transição
+      pageTransitionType: PageTransitionType.rightToLeft, // define o tipo de transição para a página
       backgroundColor: Colors.purple, // cor do fundo da tela splash
       ),
   ));
