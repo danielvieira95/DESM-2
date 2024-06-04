@@ -4,10 +4,13 @@ import 'package:page_transition/page_transition.dart'; // pacote para transiçã
 void main() {
   runApp(MaterialApp(
     home: AnimatedSplashScreen(
-      duration: 3000, // tempo de duração da animação
-      splash: Icons.home, // icone que será animado
+      duration: 10000, // tempo de duração da animação
+      //splash: Icons.home, // icone que será animado
+      splash: Image.asset('imagens/senai.png'),
       nextScreen: Telaprincipal(), // chama a próxima tela
-      splashTransition: SplashTransition.fadeTransition, // transição splash
+      //splashTransition: SplashTransition.fadeTransition, // transição splash
+      //splashTransition: SplashTransition.scaleTransition, // transição splash
+      splashTransition: SplashTransition.rotationTransition, // transição splash
       pageTransitionType: PageTransitionType.bottomToTop, // transição para a proxima tela
       backgroundColor: Colors.purple, // cor do fundo da tela
     ),
@@ -34,7 +37,9 @@ class Telaprincipal extends StatelessWidget {
             ElevatedButton(onPressed: (){
               print("Mobile 2");
         
-            }, child: Text("Mensagem"))
+            }, child: Text("Mensagem")),
+            Container(width: 200,height: 200,child: Image.asset('imagens/senai.png',fit: BoxFit.fill,)),
+            // fit escala da imagem
         
           ],
         
