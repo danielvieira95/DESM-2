@@ -25,8 +25,10 @@ class Telaprincipal extends StatefulWidget {
 }
 
 class _TelaprincipalState extends State<Telaprincipal> {
-  TextEditingController numero = TextEditingController();
-
+  TextEditingController nome = TextEditingController();
+  TextEditingController idade = TextEditingController();
+  String? nome_t;
+  String ?idade_t;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,26 +46,35 @@ class _TelaprincipalState extends State<Telaprincipal> {
           children: [
             Container(width: 200,height: 200,child: Image.asset('imagens/senai.png',fit: BoxFit.fill,)),
             // fit escala da imagem
-            ElevatedButton(onPressed: (){
-              print("Mobile 2");
-        
-            }, child: Text("Mensagem")),
+            
             
             TextFormField(
-              keyboardType: TextInputType.datetime,
+              keyboardType: TextInputType.name,
               decoration: InputDecoration(
                 hintText: "Digite seu nome"
               ),
-              controller: numero,
+              controller: nome,
             
             ),
             TextFormField(
-              keyboardType: TextInputType.datetime,
-              controller: numero,
+              keyboardType: TextInputType.number,
+              controller: idade,
               decoration: InputDecoration(
                 hintText: "Digite sua idade"
               ),
-            )
+            ),
+            ElevatedButton(onPressed: (){
+              print("Mobile 2");
+              setState(() {
+                nome_t = nome.text;
+                idade_t = idade.text;
+                
+              });
+              
+        
+            }, child: Text("Mensagem")),
+            Text("${nome_t}",style: TextStyle(fontSize: 18),),
+            Text("${idade_t}",style: TextStyle(fontSize: 18),)
           ],
         
         ),
