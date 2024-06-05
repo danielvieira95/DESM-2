@@ -42,12 +42,13 @@ class _TelaprincipalState extends State<Telaprincipal> {
           mainAxisAlignment: MainAxisAlignment.center,
           
           children: [
+            Container(width: 200,height: 200,child: Image.asset('imagens/senai.png',fit: BoxFit.fill,)),
+            // fit escala da imagem
             ElevatedButton(onPressed: (){
               print("Mobile 2");
         
             }, child: Text("Mensagem")),
-            Container(width: 200,height: 200,child: Image.asset('imagens/senai.png',fit: BoxFit.fill,)),
-            // fit escala da imagem
+            
             TextFormField(
               keyboardType: TextInputType.datetime,
               decoration: InputDecoration(
