@@ -50,11 +50,18 @@ class _TelaprincipalState extends State<Telaprincipal> {
             // fit escala da imagem
             TextFormField(
               keyboardType: TextInputType.datetime,
+              decoration: InputDecoration(
+                hintText: "Digite seu nome"
+              ),
               controller: numero,
+            
             ),
             TextFormField(
               keyboardType: TextInputType.datetime,
               controller: numero,
+              decoration: InputDecoration(
+                hintText: "Digite sua idade"
+              ),
             )
           ],
         
